@@ -8,10 +8,11 @@ body{
     height: 100vh;
 }
 
-.login.box{
+.login-box{
     width: 450px;
     height: 450px;
-    background-color:rgba(58, 121, 112, 0.11);
+    background-color:rgba(58, 121, 112, 0.11);    
+    box-shadow: 5px 5px 10px rgba(0,125,125,0.8); 
     color: black;
     top: 50%;
     left: 50%;
@@ -19,25 +20,25 @@ body{
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 70px, 30px;
-    border-radius: 25px;
+    border-radius: 25px;    
 }
 
-.login.box .avatar{
+.login-box .avatar{
     width: 120px;
     height: 120px;
     position: absolute;
     top: -20%;
-    left: 35%
+    left: 35%;
 }
 
-.login.box h1{
+.login-box h1{
     margin: 50px;
     padding: 0 0 20px;
     text-align: center;
     font-size: 35px;
 }
 
-.login.box label{
+.login-box label{
     margin: 0;
     padding: 0;
     font-weight: bold;
@@ -45,12 +46,12 @@ body{
     font-size: 18px;
 }
 
-.login.box input{
+.login-box input{
     width: 100%;
     margin-bottom: 20px;
 }
-.login.box input[type="text"],
-.login.box input[type="password"] {
+.login-box input[type="text"],
+.login-box input[type="password"] {
     border: none;
     border-bottom: 1px solid #fff;
     background: transparent;
@@ -60,23 +61,24 @@ body{
     font-size: 18px;
 }
 
-.login.box input[type="submit"] {
+.login-box input[type="submit"] {
     border: none;
     outline: none;
     height: 30px;
     background: rgba(58, 121, 112, 0.473);
     font-size: 25px;
     border-radius: 20px;
+    cursor: pointer;
 }
 
-.login.box a{
+.login-box a{
     text-decoration: none;
     font-size: 18px;
     line-height: 20px;
     color: black;
 }
 
-.login.box a:hover{
+.login-box a:hover{
     color: #fff;
 }
 
