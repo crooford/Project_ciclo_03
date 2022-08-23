@@ -19,8 +19,8 @@ body{
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-    padding: 70px, 30px;
-    border-radius: 25px;    
+    padding: 70px, 60px;
+    border-radius: 25px;      
 }
 
 .login-box .avatar{
@@ -57,11 +57,12 @@ body{
     background: transparent;
     outline: none;
     height: 30px;
-    color: #fff;
+    color: #111;
     font-size: 18px;
 }
 
 .login-box input[type="submit"] {
+    transition:  0.5s ease-in-out; 
     border: none;
     outline: none;
     height: 30px;
@@ -69,13 +70,21 @@ body{
     font-size: 25px;
     border-radius: 20px;
     cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0,125,125,0.8);
 }
 
 .login-box a{
+    transition:  0.5s ease-in-out; 
     text-decoration: none;
     font-size: 18px;
     line-height: 20px;
-    color: black;
+    color: black;    
+}
+
+.login-box input[type="submit"]:hover {
+    color: #fff;
+    background: rgba(0, 127, 127, 0.8);
+    
 }
 
 .login-box a:hover{
@@ -83,5 +92,5 @@ body{
 }
 
 .datos {
-  margin: 15px 10%;
+    margin: 15px 10%;
 }
