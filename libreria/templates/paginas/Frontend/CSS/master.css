@@ -19,6 +19,7 @@ body{
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 70px, 30px;
+    border-radius: 25px;
 }
 
 .login.box .avatar{
@@ -79,4 +80,8 @@ body{
 
 .login.box a:hover{
     color: #fff;
+}
+
+.datos {
+  margin: 15px 10%;
 }
