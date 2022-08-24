@@ -81,10 +81,9 @@ body{
     color: black;    
 }
 
-.login-box input[type="submit"]:hover {
+input[type="submit"]:hover {
     color: #fff;
-    background: rgba(0, 127, 127, 0.8);
-    
+    background: rgba(0, 127, 127, 0.8);    
 }
 
 .login-box a:hover{
