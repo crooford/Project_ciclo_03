@@ -7,6 +7,7 @@
             box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
   }
+
   .body-admon{
     background: url("../img/fondo1.jpg") no-repeat center top;
     background-size: cover;
@@ -25,6 +26,7 @@
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
   }
+
   .wrapper .sidebar.profile-admon {
     margin-bottom: 30px;
     text-align: center;
@@ -85,22 +87,25 @@
   .wrapper .sidebar ul li a.active:before {
     display: block;
   }
+
   .form-register{
-    width: 400px;
-    background: rgba(58, 121, 112, 0.11);
+    width: 400px;  
+    color: black;
     padding: 50px;
     padding-top: -70px;
     margin: 650px;
     margin-top: 0px;
-    border-radius: 4px;
-    font-family: 'calibri';
+    border-radius: 25px;     
     color: white;
-    box-shadow: 20px 13px 37px #000;
+    position: absolute;
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.35); 
+    transform: translate(0, 50%);
   }
 
   .form-register h4{
     font-size: 22px;
     margin-bottom: 20px;
+    color: black;
   }
   .controls{
     width: 100%;
@@ -111,16 +116,33 @@
     border: 1px solid #1f53c5;
     font-family: 'calibri';
     font-size: 18px;
+    
   }
   
   .form-register .botons {
-    width: 100%;
+    font-family: sans-serif;
+    transition:  0.5s ease-in-out; 
     border: none;
-    padding: 12px;
-    color:rgba(58, 121, 112, 0.473) ;
-    margin: 16px 0;
-    font-size: 16px;
+    outline: none;
+    height: 30px;
+    width: 80%;
+    background: rgba(58, 121, 112, 0.473);
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0,125,125,0.8);
+    margin: 0;
   }
+
+  .submiter {
+    text-align: center; 
+  }
+
+  input[type="submit"]:hover {
+    color: #fff;
+    background: rgba(0, 127, 127, 0.8);    
+}
+
   .form-register .botonsdbC {
     width: 100%;
     border: none;

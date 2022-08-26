@@ -11,8 +11,7 @@ body{
 .login-box{
     width: 450px;
     height: 450px;
-    background-color:rgba(58, 121, 112, 0.11);    
-    box-shadow: 5px 5px 10px rgba(0,125,125,0.8); 
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.35); 
     color: black;
     top: 50%;
     left: 50%;
@@ -62,15 +61,20 @@ body{
 }
 
 .login-box input[type="submit"] {
-    transition:  0.5s ease-in-out; 
+    transition: 0.5s ease-in-out; 
     border: none;
     outline: none;
+    width: 80%;    
     height: 30px;
     background: rgba(58, 121, 112, 0.473);
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 20px;
     cursor: pointer;
-    box-shadow: 5px 5px 10px rgba(0,125,125,0.8);
+    box-shadow: 5px 5px 10px rgba(0,125,125,0.8);    
+}
+
+.submiter {
+  text-align: center; 
 }
 
 .login-box a{
