@@ -64,7 +64,7 @@ body{
     transition: 0.5s ease-in-out; 
     border: none;
     outline: none;
-    width: 80%;    
+    width: 50%;    
     height: 30px;
     background: rgba(58, 121, 112, 0.473);
     font-size: 20px;
@@ -77,6 +77,11 @@ body{
   text-align: center; 
 }
 
+input[type="submit"]:hover {
+    color: #fff;
+    background: rgba(0, 127, 127, 0.8);    
+}
+
 .login-box a{
     transition:  0.5s ease-in-out; 
     text-decoration: none;
@@ -85,10 +90,6 @@ body{
     color: black;    
 }
 
-input[type="submit"]:hover {
-    color: #fff;
-    background: rgba(0, 127, 127, 0.8);    
-}
 
 .login-box a:hover{
     color: #fff;

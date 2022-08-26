@@ -12,6 +12,7 @@
     background-size: cover;
     font-family: sans-serif;
     height: 100vh;
+    min-width: 850px;
   }
 
   .wrapper .sidebar {
@@ -85,18 +86,30 @@
   .wrapper .sidebar ul li a.active:before {
     display: block;
   }
+  
   .form-register{
-    width: 400px;
-    background: rgba(58, 121, 112, 0.11);
+    width: 400px;  
+    color: black;
     padding: 50px;
     padding-top: -70px;
-    margin: 650px;
-    margin-top: 0px;
-    border-radius: 4px;
-    font-family: 'calibri';
-    color: white;
-    box-shadow: 20px 13px 37px #000;
+    border-radius: 25px;     
+    color: black;
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.35); 
+    transform: translate(0, 25%);
+    position: relative;
+  	left: 200px;
+    margin: 0 auto;
   }
+
+  .submiter {
+    text-align: center; 
+  }
+  
+  input[type="submit"]:hover {
+      color: #fff;
+      background: rgba(0, 127, 127, 0.8);    
+  }
+  
 
   .form-register h4{
     font-size: 22px;
@@ -114,12 +127,18 @@
   }
   
   .form-register .botons {
-    width: 100%;
+    font-family: sans-serif;
+    transition:  0.5s ease-in-out; 
     border: none;
-    padding: 12px;
-    color:rgba(58, 121, 112, 0.473) ;
-    margin: 16px 0;
-    font-size: 16px;
+    outline: none;
+    height: 30px;
+    width: 80%;
+    background: rgba(58, 121, 112, 0.473);
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0,125,125,0.8);
+    margin: 0;
   }
   .form-register .botonsdbC {
     width: 100%;
