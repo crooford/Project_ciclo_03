@@ -30,16 +30,6 @@
     text-align: center;
   }
   
-  .wrapper .sidebar .perfil-admon .avatar{
-    display: block;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border-color: black;
-    position: absolute;
-    left: 150px;
-    margin: 0 auto;
-  }
   .wrapper .sidebar .perfil-admon h3{
     color: #ffffff;
     margin: 60px;
@@ -84,4 +74,16 @@
   .wrapper .sidebar ul li a:hover:before,
   .wrapper .sidebar ul li a.active:before {
     display: block;
+  }
+
+  .avatar{
+    display: flex;
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    border-color: black;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(5%, -50%)
   }
