@@ -12,7 +12,7 @@
     background-size: cover;
     font-family: sans-serif;
     height: 100vh;
-    min-width: 850px;
+    min-width: 1000px;
   }
 
   .wrapper .sidebar {
@@ -98,7 +98,8 @@
     transform: translate(0, 25%);
     position: relative;
   	left: 200px;
-    margin: 0 auto;
+    top: -86px;
+    margin: auto;
   }
 
   .submiter {
@@ -114,6 +115,7 @@
   .form-register h4{
     font-size: 22px;
     margin-bottom: 20px;
+    text-align: center;
   }
   .controls{
     width: 100%;
@@ -131,13 +133,13 @@
     transition:  0.5s ease-in-out; 
     border: none;
     outline: none;
-    height: 30px;
+    height: 23px;
     width: 80%;
     background: rgba(58, 121, 112, 0.473);
     font-size: 20px;
     border-radius: 20px;
     cursor: pointer;
-    box-shadow: 5px 5px 10px rgba(0,125,125,0.8);
+    box-shadow: 5px 5px 10px rgba(58, 121, 112, 0.473);
     margin: 0;
   }
   .form-register .botonsdbC {
@@ -147,4 +149,23 @@
     color:rgba(58, 121, 112, 0.473) ;
     margin: 16px 0;
     font-size: 16px;
+  }
+
+  .volveradmon .botons{
+    position: absolute;
+    left: 30%;
+    top: 90%;
+    text-align: center; 
+    font-family: sans-serif;
+    transition:  0.5s ease-in-out; 
+    border: none;
+    outline: none;
+    height: 30px;
+    width: 10%;
+    background: rgba(58, 121, 112, 0.836);
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgba(0, 125, 125, 0.884);
+    margin: 0;
   }

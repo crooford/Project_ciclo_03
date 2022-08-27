@@ -101,13 +101,15 @@
     transform: translate(0, 50%);
     position: relative;
   	left: 200px;
-    margin: 0 auto;
+    top: -50px;
+    margin: auto;
   }
 
   .form-register h4{
     font-size: 22px;
     margin-bottom: 20px;
     color: black;
+    text-align: center;
   }
   .controls{
     width: 100%;
@@ -152,4 +154,23 @@
     color:rgba(58, 121, 112, 0.473) ;
     margin: 16px 0;
     font-size: 16px;
+  }
+
+  .volveradmon .botons{
+    position: absolute;
+    left: 30%;
+    top: 90%;
+    text-align: center; 
+    font-family: sans-serif;
+    transition:  0.5s ease-in-out; 
+    border: none;
+    outline: none;
+    height: 30px;
+    width: 10%;
+    background: rgba(58, 121, 112, 0.836);
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgba(0, 125, 125, 0.884);
+    margin: 0;
   }
