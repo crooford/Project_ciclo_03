@@ -142,9 +142,10 @@
     text-align: center; 
   }
 
-  input[type="submit"]:hover {
-    color: #fff;
-    background: rgba(0, 127, 127, 0.8);    
+  input[type="submit"]:hover,
+  button:hover {
+      color: #fff;
+      background: rgba(0, 127, 127, 0.8);    
 }
 
   .form-register .botonsdbC {
@@ -158,19 +159,19 @@
 
   .volveradmon .botons{
     position: absolute;
-    left: 30%;
-    top: 90%;
+    left: 420px;
+    top: 630px;
     text-align: center; 
     font-family: sans-serif;
     transition:  0.5s ease-in-out; 
     border: none;
     outline: none;
     height: 30px;
-    width: 10%;
+    width: 12ch;
     background: rgba(58, 121, 112, 0.836);
     font-size: 18px;
     border-radius: 20px;
     cursor: pointer;
-    box-shadow: 1px 1px 5px rgba(0, 125, 125, 0.884);
+    box-shadow: 3px 3px 5px rgba(0, 125, 125, 0.884);
     margin: 0;
   }

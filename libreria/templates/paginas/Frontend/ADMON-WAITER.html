@@ -34,31 +34,35 @@
             </div>
 
         </div>
-        <div class="formulario de registro de camareros">
+        <div class="formulario-de-registro-de-camareros">
             <title>Registro Camareros</title>
             <section class="form-register">
                 <h4>NUEVO EMPLEADO</h4>
-                <input class="controls" type="text" name="tipo de empleados" id="tipo de empleado" placeholder="Ingrese tipo de empleado">
-                <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese nombre del empleado">                
-                <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese apellido del empleado">
-                <input class="controls" type="text" name="usuario" id="usuarios" placeholder="Ingrese usuario">
-                <input class="controls" type="text" name="clave" id="claves" placeholder="Ingrese clave">
-                <input class="controls" type="text" name="clave" id="claves" placeholder="Confirme clave">
-                <div class="submiter">
-                    <input class="botons" type="submit" value="Registrar">
-                </div>
+                <form action="#">
+                    <select class="controls" name="selector empleado">
+                        <option value="0" selected disabled required>Seleccione tipo de empleado</option>
+                        <option value="1">Cocinero-bebidas</option>
+                        <option value="2">Cocinero-comida</option>
+                        <option value="3">Mesero</option>                   
+                        <option value="4">Cajero</option>
+                      </select>
+                    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese nombre del empleado" required>                
+                    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese apellido del empleado" required>
+                    <input class="controls" type="text" name="usuario" id="usuarios" placeholder="Ingrese usuario" required>
+                    <input class="controls" type="text" name="clave" id="claves" placeholder="Ingrese clave" required> 
+                    <input class="controls" type="text" name="clave" id="claves" placeholder="Confirme clave" required>
+                    <div class="submiter">
+                        <input class="botons" type="submit" value="Registrar">
+                    </div>
+                </form>
             </section>
 
         </div>
-        <div class="volveradmon">
-            <li>
+        <div class="volveradmon">          
                 <a href="ADMON.html">
-                    <input class="botons" type="volver" value="VOLVER">
-                </a>
-            </li>
-                
+                    <button class="botons">VOLVER</button>
+                </a> 
         </div>
-
     </div>
     
 </body>
