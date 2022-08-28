@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/admon-menu.css">
+    <title>Platos</title>
+</head>
+<body>
+    <div class="body-admon">
+        <div class="wrapper">
+
+            <div class="sidebar">
+                <div class ="perfil-admon">
+                    <img class="avatar" src="img/logo.png" alt="icono">
+                    <h3> BIENVENIDO ADMINISTRADOR</h3>
+                    <p>  Sistema de ingreso</p>
+                </div>
+                <ul>
+                    <li>
+                        <a href="ADMON-WAITER.html" >
+                            <span class="icon"><i class="register waiter"></i></span>
+                            <span class="item">EMPLEADOS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ADMON-MENU.html">
+                            <span class="icon"><i class="register menu"></i></span>
+                            <span class="item">MENU</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="formulario de registro de camareros">
+            <title>Registro Camareros</title>
+            <section class="form-register">
+                <h4>NUEVO PLATO</h4> 
+                <form action="#">          
+                    <select class="controls" name="selector empleado">
+                        <option value="0" selected disabled required>Seleccione tipo plato</option>
+                        <option value="1">Bebida-Alcohólica</option>
+                        <option value="2">Bebida-Sin alchol</option>
+                        <option value="3">Entrada</option>                   
+                        <option value="4">Plato fuerte</option>
+                        <option value="5">Postre</option>                   
+                        <option value="6">Otros</option>
+                    </select>
+                    <input class="controls" type="text" name="nombre del plato" id="nombre del plato" placeholder="Ingrese nombre del plato">
+                    <input class="controls" type="text" name="costo del plato" id="costo del plato" placeholder="Ingrese el costo del plato">
+                    <div class="submiter">
+                        <input class="botons"type="submit" value="Registrar">
+                    </div>
+                </form>
+            </section>
+
+        </div>
+        <div class="volveradmon">          
+            <a href="ADMON.html">
+                <button class="botons">VOLVER</button>
+            </a> 
+        </div>
+
+    </div>
+    
+</body>
+</html>

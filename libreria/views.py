@@ -4,5 +4,9 @@ from django.http import HttpResponse
 
 def inicio(request):
     return HttpResponse("<h1>WELCOME<h1>")
+
 def login(request):
-    return render(request, 'templates/paginas/Frontend/LOGIN.html')
+    return render(request, 'LOGIN.html')
+
+def admon(request):
+    return render(request, 'ADMON.html')
