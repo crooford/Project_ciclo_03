@@ -10,3 +10,6 @@ def login(request):
 
 def admon(request):
     return render(request, 'ADMON.html')
+
+def waiter(request):
+    return render(request, 'ADMON-WAITER.html')
