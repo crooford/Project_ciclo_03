@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %} 
-    <link rel="stylesheet" href={% static '/CSS/admon-waiter.css' %}>
-    <title>Document</title>
+    <link rel="stylesheet" href={% static '/CSS/admon-menu.css' %}>
+    <title>Platos</title>
 </head>
 <body>
     <div class="body-admon">
@@ -15,6 +15,7 @@
             <div class="sidebar">
                 <div class ="perfil-admon">
                     <img class="avatar" src={% static 'img/logo.png' %} alt="icono">
+
                     <h3> BIENVENIDO ADMINISTRADOR</h3>
                     <p>  Sistema de ingreso</p>
                 </div>
@@ -35,35 +36,35 @@
             </div>
 
         </div>
-        <div class="formulario-de-registro-de-camareros">
+        <div class="formulario de registro de camareros">
             <title>Registro Camareros</title>
             <section class="form-register">
-                <h4>NUEVO EMPLEADO</h4>
-                <form action="#">
+                <h4>NUEVO PLATO</h4> 
+                <form action="#">          
                     <select class="controls" name="selector empleado">
-                        <option value="0" selected disabled required>Seleccione tipo de empleado</option>
-                        <option value="1">Cocinero-bebidas</option>
-                        <option value="2">Cocinero-comida</option>
-                        <option value="3">Mesero</option>                   
-                        <option value="4">Cajero</option>
-                      </select>
-                    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese nombre del empleado" required>                
-                    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese apellido del empleado" required>
-                    <input class="controls" type="text" name="usuario" id="usuarios" placeholder="Ingrese usuario" required>
-                    <input class="controls" type="text" name="clave" id="claves" placeholder="Ingrese clave" required> 
-                    <input class="controls" type="text" name="clave" id="claves" placeholder="Confirme clave" required>
+                        <option value="0" selected disabled required>Seleccione tipo plato</option>
+                        <option value="1">Bebida-Alcohólica</option>
+                        <option value="2">Bebida-Sin alchol</option>
+                        <option value="3">Entrada</option>                   
+                        <option value="4">Plato fuerte</option>
+                        <option value="5">Postre</option>                   
+                        <option value="6">Otros</option>
+                    </select>
+                    <input class="controls" type="text" name="nombre del plato" id="nombre del plato" placeholder="Ingrese nombre del plato">
+                    <input class="controls" type="text" name="costo del plato" id="costo del plato" placeholder="Ingrese el costo del plato">
                     <div class="submiter">
-                        <input class="botons" type="submit" value="Registrar">
+                        <input class="botons"type="submit" value="Registrar">
                     </div>
                 </form>
             </section>
 
         </div>
         <div class="volveradmon">          
-                <a href="admon.html">
-                    <button class="botons">VOLVER</button>
-                </a> 
+            <a href="admon.html">
+                <button class="botons">VOLVER</button>
+            </a> 
         </div>
+
     </div>
     
 </body>
