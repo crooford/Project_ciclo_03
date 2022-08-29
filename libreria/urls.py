@@ -6,5 +6,5 @@ urlpatterns = [
     path('login', views.login, name='login'),
     path('admon.html', views.admon, name='admon'),
     path('admon-waiter.html', views.waiter, name='waiter'),
-     path('admon-menu.html', views.menu, name='menu'),
+    path('admon-menu.html', views.menu, name='menu'),
 ]
