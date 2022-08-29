@@ -13,3 +13,5 @@ def admon(request):
 
 def waiter(request):
     return render(request, 'admon-waiter.html')
+def menu(request):
+    return render(request, 'admon-menu.html')
