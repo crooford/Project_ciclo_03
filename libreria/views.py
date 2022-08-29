@@ -6,10 +6,10 @@ def inicio(request):
     return HttpResponse("<h1>WELCOME<h1>")
 
 def login(request):
-    return render(request, 'LOGIN.html')
+    return render(request, 'login.html')
 
 def admon(request):
-    return render(request, 'ADMON.html')
+    return render(request, 'admon.html')
 
 def waiter(request):
-    return render(request, 'ADMON-WAITER.html')
+    return render(request, 'admon-waiter.html')
