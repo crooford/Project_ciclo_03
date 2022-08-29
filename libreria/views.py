@@ -4,5 +4,12 @@ from django.http import HttpResponse
 
 def inicio(request):
     return HttpResponse("<h1>WELCOME<h1>")
+
 def login(request):
-    return render(request, 'paginas/login.html')
+    return render(request, 'LOGIN.html')
+
+def admon(request):
+    return render(request, 'ADMON.html')
+
+def waiter(request):
+    return render(request, 'ADMON-WAITER.html')
