@@ -6,12 +6,18 @@
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    
   }
   .body-admon{
     background: url("../img/fondo1.jpg") no-repeat center top;
     background-size: cover;
     font-family: 'Poppins', sans-serif;
     height: 100vh;
+    min-width: 850px;
+  }
+
+  body{
+    min-width: 850px;
   }
 
   .wrapper .sidebar {
@@ -82,7 +88,7 @@
     height: 270px;
     border-radius: 50%;
     border-color: black;
-    position: absolute;
+    position: relative;
     left: 50%;
     top: 50%;
     transform: translate(5%, -50%)
