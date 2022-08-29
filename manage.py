@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
+from distutils.log import debug
 import os
+from pickle import TRUE
 import sys
 
 
