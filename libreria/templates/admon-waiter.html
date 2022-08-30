@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %} 
     <link rel="stylesheet" href={% static '/CSS/admon-waiter.css' %}>
-    <title>Document</title>
+
+    <title>Registro de Empleados</title>
 </head>
 <body>
     <div class="body-admon">
@@ -41,16 +42,25 @@
                 <h4>NUEVO EMPLEADO</h4>
                 <form action="#">
                     <select class="controls" name="selector empleado">
-                        <option value="0" selected disabled required>Seleccione tipo de empleado</option>
-                        <option value="1">Cocinero-bebidas</option>
-                        <option value="2">Cocinero-comida</option>
-                        <option value="3">Mesero</option>                   
-                        <option value="4">Cajero</option>
-                      </select>
-                    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese nombre del empleado" required>                
-                    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese apellido del empleado" required>
-                    <input class="controls" type="text" name="usuario" id="usuarios" placeholder="Ingrese usuario" required>
-                    <input class="controls" type="text" name="clave" id="claves" placeholder="Ingrese clave" required> 
+                      <option value="0" selected disabled required>Seleccione tipo de empleado</option>
+                      <option value="1">Cocinero-bebidas</option>
+                      <option value="2">Cocinero-comida</option>
+                      <option value="3">Mesero</option>                   
+                      <option value="4">Cajero</option>
+                    </select>
+                    <div class="lado"><input class="controls" type="text" name="nombre"
+                      id="nombre"  placeholder="1er nombre del empleado" required>     
+                    </div>
+                    <div style="margin-left: 15px;" class="lado"><input class="controls" type="text" name="nombre2"
+                      id="nombre2"  placeholder="2do nombre del empleado" >     
+                    </div>
+                    <div class="lado"><input class="controls" type="text" name="apellidos" id="apellidos" placeholder="1er apellido del empleado" required>
+                    </div>
+                    <div style="margin-left: 15px;" class="lado"><input class="controls" type="text" name="apellidos" id="apellidos" placeholder="2do apellido del empleado" required>
+                    </div>               
+                      
+                    <input style="width: 48%;" class="controls" type="text" name="usuario" id="usuarios" placeholder="Usuario" required>
+                    <input class="controls" type="text" name="clave" id="claves" placeholder="Clave" required> 
                     <input class="controls" type="text" name="clave" id="claves" placeholder="Confirme clave" required>
                     <div class="submiter">
                         <input class="botons" type="submit" value="Registrar">

@@ -88,9 +88,9 @@
   }
   
   .form-register{
-    width: 400px;  
+    width: 600px;  
     color: black;
-    padding: 50px;
+    padding: 30px;
     padding-top: -70px;
     border-radius: 25px;     
     color: black;
@@ -121,12 +121,12 @@
   .controls{
     width: 100%;
     background: #24303c5b;
-    padding: 10px;
+    padding: 7px;
     border-radius: 4px;
     margin-bottom: 16px;
     border: 1px solid #1f53c5;
     font-family: 'calibri';
-    font-size: 18px;
+    font-size: 15px;
   }
   
   .controls .textogris {
@@ -174,3 +174,9 @@
     box-shadow: 3px 3px 5px rgba(0, 125, 125, 0.884);
     margin: 0;
   }
+
+.lado {
+  display: inline-block;
+  width: 48%;
+
+} 
