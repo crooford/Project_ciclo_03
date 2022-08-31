@@ -2,10 +2,10 @@ from django.db import models
 
 # Create your models here.
 
-# class User(models.Model):
-#     id_user = models.AutoField(primary_key=True)
-#     username= models.CharField(max_length=50,unique=True, null=False, blank=False)
-#     password = models.CharField(max_length=50, null=False, blank=False)
+class User(models.Model):
+    id_user = models.AutoField(primary_key=True)
+    username= models.CharField(max_length=50,unique=True, null=False, blank=False)
+    password = models.CharField(max_length=50, null=False, blank=False)
 
 # class Category(models.Model):
 #     id_category = models.AutoField(primary_key=True)
