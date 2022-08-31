@@ -41,8 +41,8 @@
             <section class="form-register">
                 <h4>NUEVO PLATO</h4> 
                 <form action="#">          
-                    <select class="controls" name="selector empleado">
-                        <option value="0" selected disabled required>Seleccione tipo plato</option>
+                    <select required class="controls" name="selector-empleado">
+                        <option value="" selected disabled >Seleccione tipo de plato</option>
                         <option value="1">Bebida-Alcohólica</option>
                         <option value="2">Bebida-Sin alchol</option>
                         <option value="3">Entrada</option>                   
@@ -50,8 +50,20 @@
                         <option value="5">Postre</option>                   
                         <option value="6">Otros</option>
                     </select>
-                    <input class="controls" type="text" name="nombre del plato" id="nombre del plato" placeholder="Ingrese nombre del plato">
-                    <input class="controls" type="text" name="costo del plato" id="costo del plato" placeholder="Ingrese el costo del plato">
+                    <div >
+                        <label class="etiqu">
+                            Nombre del plato<input class="controls" type="text" name="nombre-del-plato" id="nombre-del-plato" placeholder="Ingrese nombre del plato" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label class="etiqu">
+                            Descripción del plato<textarea class="controls" rows="4" name="descripcion-del-plato" id="descripcion-del-plato" placeholder="Describa aqui el plato" required></textarea>
+                        </label>
+                    </div>
+                    <div>
+                        <label class="etiqu">Precio del plato
+                        <input class="controls" type="number" name="costo-del-plato" id="costo-del-plato" min="0.00" max="5000000.00" placeholder="Ingrese el precio del plato">
+                    </div>
                     <div class="submiter">
                         <input class="botons"type="submit" value="Registrar">
                     </div>
@@ -61,7 +73,10 @@
         </div>
         <div class="volveradmon">          
             <a href="admon.html">
-                <button class="botons">VOLVER</button>
+                <button>
+                    <svg fill="black" height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"><path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path></svg>
+                    <span>Volver</span>
+                </button>
             </a> 
         </div>
 
