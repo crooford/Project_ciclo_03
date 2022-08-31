@@ -26,6 +26,7 @@
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
   }
+
   .wrapper .sidebar.profile-admon {
     margin-bottom: 30px;
     text-align: center;
@@ -93,7 +94,6 @@
     padding: 30px;
     padding-top: -70px;
     border-radius: 25px;     
-    color: black;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.35); 
     transform: translate(0, 25%);
     position: relative;
@@ -101,22 +101,21 @@
     top: 0px;
     margin: auto;
   }
-
-
   
   input[type="submit"]:hover,
   button:hover {
       color: #fff;
-      background: rgba(0, 127, 127, 0.8);    
-  }
-  
+      box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+      transform: translateY(-2px);  
+  }  
 
   .form-register h4{
     font-size: 22px;
     margin-bottom: 20px;
     text-align: center;
   }
-  .controls{
+
+  .controls {
     width: 100%;
     background: #24303c5b;
     padding: 7px;
@@ -133,7 +132,7 @@
 
   .form-register .botons {
     font-family: sans-serif;
-    transition:  0.5s ease-in-out; 
+    transition: all 0.2s ease-in;
     border: none;
     outline: none;
     height: 23px;
@@ -179,7 +178,7 @@ button {
   justify-content: center;
   background-color: #eeeeee4b;
   letter-spacing: 1px;
-  transition: all 0.2s linear;
+  transition: all 0.2s ease-in;
   cursor: pointer;
   border: none;
   background: rgba(58, 121, 112, 0.473);
@@ -189,7 +188,7 @@ button {
   margin-right: 5px;
   margin-left: 5px;
   font-size: 20px;
-  transition: all 0.4s ease-in;
+  transition: all 0.2s ease-in;
  }
  
  button:hover > svg {
