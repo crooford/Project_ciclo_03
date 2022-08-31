@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,16 +14,31 @@
   <h1>INGRESE AQUI</h1>
   <form action="admon.html" >
     <div class="datos">
+    <!-- metodo de login para Django-->  
+      <form id="form-login" method="post" action"">
+      {% csrf_token %}
+      <label for="USUARIO">USUARIO:</label>
+      <div style= "width: 75%" ; margin: auto; id="username">
+        {{form.username}}
+      </div>
+      <label for="CONTRASEÑA">CONTRASEÑA:</label>
+      <div style= "width: 75%" ; margin: auto; id="password">
+        {{form.password}}
+      <button type="submit" class="btn btn succes">Login</button>
+        <!--
       <!-- USERNAME -->
+      <!--
       <label for="USUARIO">USUARIO</label>
       <input type="text" placeholder="nombre de usuario">
       <br>
-      <br>
+      <br> -->
       <!-- PASSWORD -->
+      <!--
       <label for="CONTRASEÑA">CONTRASEÑA</label>
       <input type="password" placeholder="contraseña">
       <div class="submiter">
-       <input type="submit" value="Log In">
+       <input type="submit" value="Log In">  
+      -->
       </div>
       <br><a href="admon.html">Olvidé la contraseña</a> 
     </div>
