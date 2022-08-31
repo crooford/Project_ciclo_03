@@ -268,10 +268,10 @@ $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 	var actions = $("table td:last-child").html();
 	// Append table with add row form on add new button click
-    $(".add-new").click(function(){
-		$(this).attr("disabled", "disabled");
-		var index = $("table tbody tr:last-child").index();
-        var row = '<tr>' +
+    //$(".add-new").click(function(){
+	//	$(this).attr("disabled", "disabled");
+	//	var index = $("table tbody tr:last-child").index();
+     //   var row = '<tr>' +
             '<td><input type="text" class="form-control" name="nombre" id="nombre"></td>' +
             '<td><input type="text" class="form-control" name="apellido" id="apellido"></td>' +
             '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
@@ -281,7 +281,7 @@ $(document).ready(function(){
     	$("table").append(row);		
 		$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
         $('[data-toggle="tooltip"]').tooltip();
-    });
+    //});
 	// Add row on add button click
 	$(document).on("click", ".add", function(){
 		var empty = false;
@@ -326,7 +326,9 @@ $(document).ready(function(){
                 <div class="row">
                     <div class="col-sm-8"><h2> BASE DE DATOS EMPLEADOS </h2></div>
                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                        <a href="admon-waiter.html"
+                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar</button>
+                        </a>
                     </div>
                 </div>
             </div>
