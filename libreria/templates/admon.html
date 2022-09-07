@@ -1,43 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %} 
-    <link rel="stylesheet" href={% static '/CSS/admon.css' %}>
-    <title>Document</title>
-</head>
-<body>
-    <div class="body-admon">
-        <div class="wrapper">
-            <div class="sidebar">
-                <div class ="perfil-admon">
-                        
-                    <h3> BIENVENIDO ADMINISTRADOR</h3>
-                    <p>  Sistema de ingreso</p>
-                </div>
-                <ul>
-                    <li>
-                        <a href="admon-waiter-data.html" >
-                                <span class="icon"><i class="register waiter"></i></span>
-                                <span class="item">EMPLEADOS</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="admon-menu.html">
-                                <span class="icon"><i class="register menu"></i></span>
-                                <span class="item">MENU</span>
-                        </a>
-                    </li>
-                </ul>
+{% extends "base.html" %}
+
+{% block titulo %} Login {% endblock %}
+
+
+{% block contenido %} 
+{% load static %} 
+
+<div class="body-admon">
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class ="perfil-admon">
+                    
+                <h3> BIENVENIDO ADMINISTRADOR</h3>
+                <p>  Sistema de ingreso</p>
             </div>
-        </div>
-        <div class="avatar">
-            <img src={% static 'img/logo.png' %} center="icono">
+            <ul>
+                <li>
+                    <a href="admon-waiter-data.html" >
+                            <span class="icon"><i class="register waiter"></i></span>
+                            <span class="item">EMPLEADOS</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admon-menu.html">
+                            <span class="icon"><i class="register menu"></i></span>
+                            <span class="item">MENU</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
+    <div class="avatar">
+        <img src={% static 'img/logo.png' %} center="icono">
+    </div>
+</div>
 
-    
-</body>
-</html>
+{% endblock %}
