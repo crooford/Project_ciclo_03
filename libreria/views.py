@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/accounts/login/')
 def admon(request):
-    return render(request, 'admon.html')
+    return render(request, 'admon')
 
 def waiter(request):
     return render(request, 'admon-waiter.html')
