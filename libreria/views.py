@@ -6,9 +6,9 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-@login_required(login_url='/accounts/login/')
+
 def admon(request):
-    return render(request, 'admon')
+    return render(request, 'admon.html')
 
 def waiter(request):
     return render(request, 'admon-waiter.html')

@@ -22,7 +22,11 @@ from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('libreria.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='admon.html'), name='admon'),
-   
+           
 ]
+
+
+#path('', TemplateView.as_view(template_name='admon.html'), name='admon')
