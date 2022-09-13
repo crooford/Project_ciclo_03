@@ -1,38 +1,33 @@
-{% extends "base.html" %}
 
-{% block titulo %} Login {% endblock %}
+
+{% extends "base2.html" %}
+<title>
+{% block title %} LOGIN {% endblock %}
+</title>
+
 
 
 {% block contenido %} 
+
 {% load static %} 
+ <!--
 
 <div class="body-admon">
     <div class="wrapper">
         <div class="sidebar">
             <div class ="perfil-admon">
                     
-                <h3> BIENVENIDO ADMINISTRADOR</h3>
-                <p>  Sistema de ingreso</p>
             </div>
-            <ul>
-                <li>
-                    <a href="admon-waiter-data.html" >
-                            <span class="icon"><i class="register waiter"></i></span>
-                            <span class="item">EMPLEADOS</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="admon-menu.html">
-                            <span class="icon"><i class="register menu"></i></span>
-                            <span class="item">MENU</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="avatar">
+            
+               <li>{% if user.is_authenticated %}</li>
+                <li><a href="{% url 'logout' %}">cerrar sesión</a> </li>
+                <li><a href="#"> @ {{user.username}} </a></li>
+                <li>{% else %}</li>
+                <li><a href="{% url 'login' %}">iniciar sesión</a></li>
+                <li>{% endif %}</li>-->
+<!--   <div class="avatar">
         <img src={% static 'img/logo.png' %} center="icono">
     </div>
 </div>
-
+--> 
 {% endblock %}

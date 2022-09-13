@@ -1,4 +1,6 @@
-* {
+* 
+
+{
     list-style: none;
     text-decoration: none;
     margin: 0;
@@ -14,6 +16,7 @@
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     min-width: 850px;
+    
   }
 
   body{
@@ -92,4 +95,4 @@
     left: 50%;
     top: 50%;
     transform: translate(5%, -50%)
-  }
+ 

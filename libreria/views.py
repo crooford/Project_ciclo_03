@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from .forms import CustomUserCreationForm
 # Create your views here.
 
 
@@ -18,5 +19,11 @@ def menu(request):
 
 def waiterData(request):
     return render(request, 'admon-waiter-data.html')
+
+def registro(request):
+    data = {
+        'form': CustomUserCreationForm()
+    }
+    return render(request, 'registration/registro.html', data)
 
 

@@ -1,5 +1,6 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="static/css/base2.css"><!-- CSS del html basico-->    
     <link rel="stylesheet" href="">  <!-- CSS del html particular-->  
-    <title>base2</title>
+    <title>
+      {% block title %} Home {% endblock %}
+   </title>
+    
 </head>
 <body>
     
@@ -24,10 +28,10 @@
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="login.html">Principal</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Principal</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="base2.html">Admon</a>
+                <a class="nav-link" href="registro.html">Usuarios</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="mesero-mesas.html">Mesero</a>
@@ -38,9 +42,15 @@
                 <li class="nav-item">
                   <a class="nav-link" href="login.html">Salir</a>
                 </li>
+                
             </ul>
             <span class="navbar-text">
-              Variable_Usuario
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">cerrar sesión</a>
+                <a href="#"> @ {{user.username}} </a>
+                {% else %}
+                <a href="{% url 'login' %}">iniciar sesión</a>
+                {% endif %}
             </span>
           </div>
         </div>
@@ -50,7 +60,7 @@
     FIN del codigo Html basico
     -->
     
-
+    {% block contenido %} {% endblock %}
 </body>
 
 </html>
