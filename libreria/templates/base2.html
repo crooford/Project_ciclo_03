@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/base2.css"><!-- CSS del html basico-->    
+    <link rel="stylesheet" href="">  <!-- CSS del html particular-->  
+    <title>base2</title>
+</head>
+<body>
+    
+    <!-- 
+    INICIO del codigo Html basico que va temporalmente en todas las páginas,
+    luego se cambiará a un base.html para que Django lo aplique.
+    -->    
+    <nav class="navbar fixed-top navbar-expand" style="background-color: #4291c9;">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="login.html"><img src="/static/img/logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-center">Tworden</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="login.html">Principal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="base2.html">Admon</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mesero-mesas.html">Mesero</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="cocinero-comandas-todas.html">Cocina</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="login.html">Salir</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+              Variable_Usuario
+            </span>
+          </div>
+        </div>
+    </nav>
+
+    <!-- 
+    FIN del codigo Html basico
+    -->
+    
+
+</body>
+
+</html>
+
+
