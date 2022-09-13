@@ -19,4 +19,10 @@ def menu(request):
 def waiterData(request):
     return render(request, 'admon-waiter-data.html')
 
+def meseroMesas(request):
+    return render(request, 'mesero-mesas.html')
+
+def meseroOrden(request):
+    return render(request, 'mesero-orden.html')
+
 

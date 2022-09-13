@@ -6,4 +6,6 @@ urlpatterns = [
     path('admon-waiter.html', views.waiter, name='waiter'),
     path('admon-menu.html', views.menu, name='menu'),
     path('admon-waiter-data.html', views.waiterData, name='waiterData'),
+    path('mesero-mesas.html', views.meseroMesas, name='meseroMesas'),
+    path('mesero-orden.html', views.meseroOrden, name='meseroOrden'),
 ]
