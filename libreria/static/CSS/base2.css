@@ -35,7 +35,7 @@ body {
     max-height: 50px;
 }
 
-@charset "utf-8";
+
 .tarjeta{
 display:flex;
 flex-direction:column;
