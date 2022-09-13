@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href={% static '/CSS/base2.css' %}><!-- CSS del html basico-->    
+    <link rel="stylesheet" href={% static '/CSS/orden.css' %}>  <!-- CSS del html particular-->  
+    <title>Mesero Orden</title>
+</head>
+<body>
+    
+    <!-- 
+    INICIO del codigo Html basico que va temporalmente en todas las páginas,
+    luego se cambiará a un base.html para que Django lo aplique.
+    -->    
+    <nav class="navbar fixed-top navbar-expand" style="background-color: #4291c9;">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="login.html"><img src={% static 'img/logo.png' %} alt="Logo" width="40" height="40" class="d-inline-block align-text-center">Tworden</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="login.html">Principal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="admon.html">Admon</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mesero-mesas.html">Mesero</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="cocinero-comandas-todas.html">Cocina</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="login.html">Salir</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+              Variable_Usuario
+            </span>
+          </div>
+        </div>
+    </nav>
+
+    <!-- 
+    FIN del codigo Html basico
+    -->
+    
+    <div class="container mt-5">
+    
+      <div class="ventana-mesa">
+        <div class="encabezado">
+          <h4>Mesa # 1 <a href="mesero-mesas.html"><button type="button" class="btn btn-dark"></button></a> </h4>
+        </div>      
+        <div class="row gx-1">
+        
+          <div class="col notepad">
+            <form action="mesero-orden.html" id="blocdepedidos" method="POST">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Item</th>
+                  <th  scope="col">Cant</th>
+                  <th scope="col">Subt</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <tr id="renglon01">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon02">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon03">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon04">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon05">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon06">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon07">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon08">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon09">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon10">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon11">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon12">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon13">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon14">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon15">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon16">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon17">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon18">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon19">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon20">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon21">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon22">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon23">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon24">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon25">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon26">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon27">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon28">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon29">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon30">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon31">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" id="item" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" id="cantidad" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 11ch;" id="precio" name="precio" value="" /></td>
+                </tr>
+                <tr id="renglon32">
+                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
+                  <td><input type="text" style="width: 30ch;" id="item" name="item" value="" /></td>
+                  <td>x<input  type="text" style="width: 3ch;" id="cantidad" name="cantidad" value="" /></td>
+                  <td><input type="text" style="width: 11ch;" id="precio" name="precio" value="" /></td>
+                </tr>             
+              </tbody>
+            </table>
+          </form>
+          </div>
+
+
+          <div class="col botones">
+            <div class="list-group">
+              <a href="#ent" id="entradas" class="categoria list-group-item list-group-item-action">Entradas</a>
+              <a href="#plp" id="principal" class="categoria list-group-item list-group-item-action">Plato principal</a>
+              <a href="#pos" id="postres" class="categoria list-group-item list-group-item-action">Postres</a>
+              <a href="#beb" id="bebidas" class="categoria list-group-item list-group-item-action">Bebidas</a>
+              <a href="#otr" id="otros" class="categoria list-group-item list-group-item-action">Otros</a>
+            </div>
+          </div>
+
+
+          <div class="col listado">
+            
+            <div>
+              <h5 id="ent">Entradas</h5>
+            </div>            
+            <div class="list-group">
+              <a href="#popup1" id="en1" class="entrada list-group-item list-group-item-action">Aritos de cebolla</a>
+              <a href="#popup1" id="en2" class="entrada list-group-item list-group-item-action">Focaccia</a>
+              <a href="#popup1" id="en3" class="entrada list-group-item list-group-item-action">Nachos</a>
+              <a href="#popup1" id="en4" class="entrada list-group-item list-group-item-action">Palitos de queso</a>
+              <a href="#popup1" id="en5" class="entrada list-group-item list-group-item-action">Tortilla de papa</a>
+            </div>
+
+            <hr>
+            <div>
+              <h5 id="plp">Platos Principales</h5>
+            </div>            
+            <div class="list-group">
+              <a href="#popup1" id="pp1" class="principal list-group-item list-group-item-action">Pollo a la naranja</a>
+              <a href="#popup1" id="pp2" class="principal list-group-item list-group-item-action">Punta de anca asada</a>
+              <a href="#popup1" id="pp3" class="principal list-group-item list-group-item-action">Bandeja paisa</a>
+              <a href="#popup1" id="pp4" class="principal list-group-item list-group-item-action">Filete de salmón al horno</a>
+              <a href="#popup1" id="pp5" class="principal list-group-item list-group-item-action">Spaghetti a la Bolognesa</a>
+            </div>
+            
+            <hr>
+            <div>
+              <h5 id="pos">Postres</h5>
+            </div>            
+            <div class="list-group">
+              <a href="#popup1" id="po1" class="postre list-group-item list-group-item-action">Pastel de chocolate</a>
+              <a href="#popup1" id="po2" class="postre list-group-item list-group-item-action">Pie de limón</a>
+              <a href="#popup1" id="po3" class="postre list-group-item list-group-item-action">Tiramisu</a>
+            </div>
+
+            <hr>
+            <div>
+              <h5 id="beb">Bebidas</h5>
+            </div>            
+            <div class="list-group">
+              <a href="#popup1" id="bb1" class="bebida list-group-item list-group-item-action">Cerveza Heineken</a>
+              <a href="#popup1" id="bb2" class="bebida list-group-item list-group-item-action">Cerveza Poker</a>
+              <a href="#popup1" id="bb3" class="bebida list-group-item list-group-item-action">Jugo de limón</a>
+              <a href="#popup1" id="bb4" class="bebida list-group-item list-group-item-action">Sorbete de guanábana</a>
+              <a href="#popup1" id="bb5" class="bebida list-group-item list-group-item-action">Vino Rosé</a>
+            </div>
+
+            <hr>
+            <div>
+              <h5 id="otr">Otros</h5>
+            </div>            
+            <div class="list-group">
+              <a href="#popup1" id="ot1" class="otro list-group-item list-group-item-action">Porcion de papa a la francesa</a>
+              <a href="#popup1" id="ot2" class="otro list-group-item list-group-item-action">Porción de papa criolla</a>
+              <a href="#popup1" id="ot3" class="otro list-group-item list-group-item-action">Porción de arroz</a>
+              <a href="#popup1" id="ot4" class="otro list-group-item list-group-item-action">Porción de yuca</a>
+            </div>
+
+          </div>
+          
+          
+          <br>
+          <div>
+
+          </div>
+          <div>
+            <button class="btn btn-primary" type="submit" form="blocdepedidos">Enviar Comanda</button>
+          </div>
+
+          
+          <div id="popup1" class="overlay">
+            <div class="popup">
+              <div class="encabezado">
+                <h4>Nombre del producto</h4>
+              </div>              
+              
+              <div class="contenido">
+                Descripcion corta del producto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempus augue sit amet tempus porta. 
+                <div>
+                  <hr>
+                  <form action="#">
+                    <div>
+                      <label>
+                        Cantidad: 
+                        <input 
+                        type="number" 
+                        min="0" 
+                        max="20"
+                        
+                        value="0">
+                      </label>
+                    </div>
+                    <div class="obs">
+                      <label>Observaciones:<br>
+                        <textarea id="observaciones" name="observaciones" rows="4" cols="50" placeholder="Escriba aqui observaciones"></textarea>
+                      </label>                      
+                    </div>
+                    <div>
+                      <button type="submit" class="btn btn-success">Enviar</button>
+                      <a href="#"><button type="button" class="btn btn-danger">Cancelar</button></a> 
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+              
+            
+          </div>
+          
+      </div>
+    </div>
+
+
+    
+
+
+</body>
+</html>
