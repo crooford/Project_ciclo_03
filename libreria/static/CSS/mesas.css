@@ -1,6 +1,7 @@
+
 .container {
-    position: absolute;
-    top: 2%;
+    position: relative;
+
     left: 2%;  
     max-width: 1000px;
 }
@@ -14,8 +15,7 @@
     margin: 5px;
     align-items: center;
     display: block;
-    width: auto;
-    
+    width: auto;    
     border-radius: 10%;
   }
 

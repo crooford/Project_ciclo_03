@@ -15,7 +15,8 @@
  <!-- 
     INICIO del codigo Html basico que va temporalmente en todas las páginas,
     luego se cambiará a un base.html para que Django lo aplique.
-    -->    
+    -->   
+    <header>
     <nav class="navbar fixed-top navbar-expand" style="background-color: #4291c9;">
       <div class="container-fluid">
           <a class="navbar-brand" href="login.html"><img src={% static 'img/logo.png' %} alt="Logo" width="40" height="40" class="d-inline-block align-text-center">Tworden</a>
@@ -46,11 +47,11 @@
           </div>
         </div>
     </nav>
-
+    </header> 
     <!-- 
     FIN del codigo Html basico
     -->
-
+  <div id="todo">
     <div class="container mt-5">
       <div class="row row-cols-3 mt-3 row-cols-md-5 g-3">
 
@@ -222,6 +223,6 @@
 
       </div>
     </div>
-
+  </div>
 </body>
 </html>

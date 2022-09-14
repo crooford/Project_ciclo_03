@@ -15,8 +15,9 @@
     <!-- 
     INICIO del codigo Html basico que va temporalmente en todas las páginas,
     luego se cambiará a un base.html para que Django lo aplique.
-    -->    
-    <nav class="navbar fixed-top navbar-expand" style="background-color: #4291c9;">
+    -->  
+    <header>
+      <nav class="navbar fixed-top navbar-expand" style="background-color: #4291c9;">
       <div class="container-fluid">
           <a class="navbar-brand" href="login.html"><img src={% static 'img/logo.png' %} alt="Logo" width="40" height="40" class="d-inline-block align-text-center">Tworden</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,12 +46,13 @@
             </span>
           </div>
         </div>
-    </nav>
-
+      </nav>
+    </header>  
     <!-- 
     FIN del codigo Html basico
     -->
-    
+    <div id="todo">
+
     <div class="container mt-5">
     
       <div class="ventana-mesa">
@@ -68,6 +70,7 @@
                   <th scope="col">Item</th>
                   <th  scope="col">Cant</th>
                   <th scope="col">Subt</th>
+                  <th scope="col">Observaciones</th>
                 </tr>
               </thead>
               <tbody class="table-group-divider">
@@ -76,192 +79,224 @@
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon02">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon03">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon04">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon05">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon06">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon07">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon08">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon09">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon10">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon11">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon12">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon13">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon14">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon15">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon16">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon17">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon18">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon19">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon20">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon21">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon22">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon23">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon24">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon25">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon26">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon27">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon28">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon29">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon30">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 10ch;" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon31">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" id="item" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" id="cantidad" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 11ch;" id="precio" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>
                 <tr id="renglon32">
                   <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
                   <td><input type="text" style="width: 30ch;" id="item" name="item" value="" /></td>
                   <td>x<input  type="text" style="width: 3ch;" id="cantidad" name="cantidad" value="" /></td>
                   <td><input type="text" style="width: 11ch;" id="precio" name="precio" value="" /></td>
+                  <td><textarea id="obsbloc" name="obsbloc" rows="1" cols="150" placeholder=""></textarea></td>
                 </tr>             
               </tbody>
             </table>
@@ -356,7 +391,7 @@
                 <h4>Nombre del producto</h4>
               </div>              
               
-              <div class="contenido">
+              <div class="principal">
                 Descripcion corta del producto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempus augue sit amet tempus porta. 
                 <div>
                   <hr>
@@ -392,6 +427,7 @@
       </div>
     </div>
 
+    </div> 
 
     
 

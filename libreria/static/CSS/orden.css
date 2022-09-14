@@ -1,7 +1,6 @@
 .ventana-mesa {
-  position: absolute;
-  top: 12%;
-  left: 20px;
+  position: relative;
+
   min-height: 510px;
   min-width: 800px;
   max-height: 510px;
@@ -12,10 +11,6 @@
   border: 3px solid silver;
   border-radius: 20px;
   box-shadow: 5px 5px 5px 5px rgba(84, 146, 175, 0.5), -5px -5px 5px 5px rgba(84, 146, 175, 0.5), -5px 5px 5px 5px rgba(84, 146, 175, 0.5), 5px -5px 5px 5px rgba(84, 146, 175, 0.5);
-}
-
-.container {
-  background-color: blanchedalmond;
 }
 
 .encabezado {
@@ -32,7 +27,7 @@ h4 {
 .notepad {
   background-color: white;
   overflow: scroll;
-  overflow-x: hidden;
+  overflow-x: auto;
   position: relative;
   margin: auto;
   padding: 0;
@@ -80,10 +75,11 @@ h4 {
 }
 
 thead {
-  text-align: center; 
+  text-align: left; 
 }
 
-td input {
+td input, 
+textarea {
   border: none;
 }
 
