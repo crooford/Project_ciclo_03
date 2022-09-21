@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+<title>
+{% block title %} Lista de Menu {% endblock %}
+</title>
+
+
+{% block contenido %} 
+{% load static %} 
+<br><br><br><br><br><br>
+<div class="container">    
+   
+    <div class="table-wrapper2" style=" width: Auto; height: 400px; overflow: scroll;" >
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8"><h2> BASE DE DATOS MENU </h2></div>
+                <div class="col-sm-4">
+                    <a href="crear-plato.html"
+                    <button type="submit" class="btn btn-info add-new"> <i class="fa fa-plus"></i> Agregar Plato</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Plato</th>
+                    <th>Precio</th>
+                    <th>Tipo de Plato</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for plato in platos%}
+                <tr>
+                    <td>{{plato.id}}</td>
+                    <td>{{plato.nombre_plato}}</td>
+                    <td>{{plato.precio}}</td>
+                    <td>{{plato.tipo_plato}}</td>
+                    <td>
+                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    </td>
+                </tr>  
+                {%endfor%}    
+            </tbody>
+        </table>
+    </div>
+</div>  
+
+{% endblock %}
