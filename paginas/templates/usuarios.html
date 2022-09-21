@@ -9,7 +9,7 @@
 <br><br><br><br><br><br>
 <div class="container">    
    
-    <div class="table-wrapper2" style=" width: Auto; height: 400px; overflow: scroll;" >
+    <div class="table-wrapper2 " style=" width: Auto; height: 400px; overflow: scroll;" >
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-8"><h2> BASE DE DATOS EMPLEADOS </h2></div>
@@ -41,9 +41,8 @@
                     <td>{{user.usuario.Cargo}}</td>
                     <td>{{user.usuario.Rol}}</td>
                     <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></i></a>
+                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons"><i class="material-icons"><img src={% static 'img/icono_borrar.png' %} width="25" height="25" class="edit-pencil" alt="edit"></i></a>
                     </td>
                 </tr>      
             </tbody>
