@@ -12,9 +12,7 @@ urlpatterns = [
    path('crear-plato.html', views.crear_plato, name='crear-plato'),
    path('editar-contacto/<int:id>/', views.editar_plato, name='editar-plato'), 
    path('eliminar-contacto/<int:id>/', views.eliminar_plato, name='eliminar-plato'),
-<<<<<<< HEAD
    path('usuarios.html', listUsuario.as_view(), name='usuarios'),
-=======
-   
->>>>>>> c0fd2b7e4be0aa1199940777968057d9748e57c9
+   path('mesero-mesas.html', views.mesero_mesas, name='mesero_mesas'),
+   path('mesero-orden.html', views.mesero_order, name='mesero_orden'),
 ]
