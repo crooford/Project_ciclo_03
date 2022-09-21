@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from usuario.models import Usuario
-
+from .models import Menu
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -27,3 +27,8 @@ class Usuario(forms.ModelForm):
     class Meta:
         model = Usuario
         fields = ('Cargo', 'Rol')
+
+class Menuform(forms.ModelForm):
+    class Meta:
+        model=Menu
+        fields = ('__all__')
