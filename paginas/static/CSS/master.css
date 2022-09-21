@@ -1,0 +1,130 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    background: url("../img/fondo1.jpg") no-repeat center top;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+.login-box{
+    width: 450px;
+    height: 450px;
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.35); 
+    color: black;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px, 60px;
+    border-radius: 25px;      
+}
+
+.login-box .avatar{
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: -20%;
+    left: 35%;
+}
+
+.login-box h1{
+    margin: 50px;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.login-box label{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+    font-size: 18px;
+}
+
+.login-box input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 30px;
+    color: #111;
+    font-size: 18px;
+}
+
+.login-box input[type="submit"] {
+    transition: 0.5s ease-in-out; 
+    border: none;
+    outline: none;
+    width: 50%;    
+    height: 30px;
+    background: rgba(58, 121, 112, 0.473);
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0,125,125,0.8);    
+}
+
+.submiter {
+  text-align: center; 
+}
+
+input[type="submit"]:hover {
+    color: #fff;
+    background: rgba(0, 127, 127, 0.8);    
+}
+
+.login-box a{
+    transition:  0.5s ease-in-out; 
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 20px;
+    color: black;    
+}
+
+
+.login-box a:hover{
+    color: #fff;
+}
+
+.datos {
+    margin: 15px 10%;
+}
+header {
+    background: rgba(0,0,0,0.7);
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+  }
+  
+  nav {
+    float: left;
+  }
+  
+  nav ul {
+    list-style: none;
+    overflow: hidden; 
+  }
+  
+  nav ul li {
+    float: left;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  nav ul li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+  nav ul li:hover {
+    background: #eca023;
+  }

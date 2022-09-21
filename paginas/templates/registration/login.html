@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Noutriure Deliciouse login in</title>
+{% load static %} <link rel="stylesheet" href={% static '/CSS/master.css' %}>
+</head> 
+<body>
+  {% load crispy_forms_tags %}
+  <div class="login-box">
+  <img class="avatar" src={% static 'img/logo.png' %} alt="icono">
+  <h1>INGRESE AQUI</h1>
+  
+    <div class="datos"> 
+      <div class="col-12.col-md-6.offset-md-3">
+              <form action="" method="post">
+                  {% csrf_token %}
+                  {{ form | crispy }}
+                  <div class="submiter">
+                    <input type="submit" value="Log In">
+                   </div>
+  
+
+  
