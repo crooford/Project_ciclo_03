@@ -33,6 +33,11 @@ def registro(request):
     context = {'formulario' : formulario, 'usuario_form': usuario_form}    
     return render(request, 'registration/registro.html', context)
 
+def menu(request):
+    platos = Menu.objects.all()
+    context = {'platos': platos}
+    return render(request,'menu.html', context)
+
 def crear_plato(request):
     if request.method == 'GET':
         formulario = Menuform()
