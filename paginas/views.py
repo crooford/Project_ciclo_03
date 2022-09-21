@@ -4,6 +4,9 @@ from .forms import CustomUserCreationForm, Usuario
 from django.contrib.auth import login, logout, authenticate
 from .forms import Menuform
 from .models import Menu
+from django.contrib.auth.models import User
+from usuario.models import Usuario
+from django.views.generic import ListView
 
 # Create your views here.
 def usuarios(request):
@@ -69,4 +72,8 @@ def eliminar_plato(request,id):
     plato = Menu.objects.get(id=id)
     plato.delete()
     return redirect('menu.html')
+
+class listUsuario(ListView):
+    model = User
+    template_name = 'usuarios.html'
 
