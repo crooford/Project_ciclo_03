@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from .forms import CustomUserCreationForm, Usuario
 from django.contrib.auth import login, logout, authenticate
 from .forms import Menuform
-from .models import Menu
+from .models import *
 from django.contrib.auth.models import User
 from usuario.models import Usuario
 from django.views.generic import ListView
@@ -83,5 +83,6 @@ def mesero_orden(request):
     return render(request, 'mesero-orden.html')
 
 def mesero_mesas(request):
-    return render(request, 'mesero-mesas.html')
+    mesas = Mesas.objects.all()
+    return render(request, 'mesero-mesas.html', {'mesas': mesas})
 
