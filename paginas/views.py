@@ -3,9 +3,12 @@ from django.shortcuts import render,redirect
 from .forms import CustomUserCreationForm, Usuario
 from django.contrib.auth import login, logout, authenticate
 from .forms import Menuform
+<<<<<<< Updated upstream
 from .models import *
+=======
+from .models import Menu, Usuario
+>>>>>>> Stashed changes
 from django.contrib.auth.models import User
-from usuario.models import Usuario
 from django.views.generic import ListView
 
 # Create your views here.
@@ -18,24 +21,24 @@ def ppal(request):
 def registro(request):
    
     if request.method == 'POST':
-        formulario = CustomUserCreationForm(request.POST)
+        formuser = CustomUserCreationForm(request.POST)
         usuario_form = Usuario(request.POST)
         
-        if formulario.is_valid() and usuario_form.is_valid():
-            user =formulario.save()
+        if formuser.is_valid() and usuario_form.is_valid():
+            user =formuser.save()
             usuario = usuario_form.save(commit=False)
             usuario.user = user
             
             usuario.save()
             
-            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            user = authenticate(username=formuser.cleaned_data["username"], password=formuser.cleaned_data["password1"])
             login(request, user)
            
             return render(request, 'ppal.html')
     else:
-        formulario = CustomUserCreationForm()
+        formuser = CustomUserCreationForm()
         usuario_form = Usuario()     
-    context = {'formulario' : formulario, 'usuario_form': usuario_form}    
+    context = {'formuse' : formuser, 'usuario_form': usuario_form}    
     return render(request, 'registration/registro.html', context)
 
 def menu(request):

@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views
-from paginas.views import listUsuario
+from .views import listUsuario
 
 urlpatterns = [
    path('', views.ppal, name='ppal'),

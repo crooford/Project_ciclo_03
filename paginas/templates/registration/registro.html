@@ -6,7 +6,7 @@
 
 
 {% block contenido %} {% load static %} 
-<br><br><br><br><br><br>
+
 {% load crispy_forms_tags %}
 <div class="tarjeta">
   
@@ -14,8 +14,8 @@
   <div class="cuerpo">
     <div class="col-12.col-md-6.offset-md-3">
       <form action="" method="post">
-        {% csrf_token%}
-        {{formulario.as_p}}
+        {% csrf_token %}
+        {{formuser.as_p}}
         {{usuario_form.as_p}}
         {{ form | crispy }}
         <div class="submiter">
