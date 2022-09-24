@@ -10,7 +10,9 @@ from django.views.generic import ListView
 
 # Create your views here.
 def usuarios(request):
-    return render(request, 'usuarios.html')
+    usuarios = User.objects.all()
+    context = {'usuarios': usuarios}
+    return render(request, 'usuarios.html', context)
 def ppal(request):
     return render(request, 'ppal.html')
 def registro(request):
@@ -43,35 +45,35 @@ def menu(request):
 
 def crear_plato(request):
     if request.method == 'GET':
-        formulario = Menuform()
+        formulariom = Menuform()
     else:
-         formulario = Menuform(request.POST)
-         if formulario.is_valid():
-             formulario.save()
-             return redirect('menu.html')    
-    return render(request, 'crear-plato.html',{'formulario': formulario})
+         formulariom = Menuform(request.POST)
+         if formulariom.is_valid():
+             formulariom.save()
+             return redirect('menu')    
+    return render(request, 'crear-plato.html',{'formulariom': formulariom})
 
 def editar_plato(request,id):
     plato= Menu.objects.get(id=id)
-    if request.method == 'POST':
-        formulario = Menuform(instance=plato)
+    if request.method == 'GET':
+        formulariom = Menuform(instance=plato)
         contexto={
-            'formulario': formulario
+            'formulariom': formulariom
         }
     else:
-        formulario = Menuform(request.POST,instance=plato)
+        formulariom = Menuform(request.POST,instance=plato)
         contexto={
-            'formulario': formulario
+            'formulariom': formulariom
         }
-        if formulario.is_valid():
-            formulario.save()
-            return redirect('menu.html')
-    return render(request,'editar_plato.html',contexto) 
+        if formulariom.is_valid():
+            formulariom.save()
+            return redirect('menu')
+    return render(request,'editar-plato.html',contexto) 
 
 def eliminar_plato(request,id):
     plato = Menu.objects.get(id=id)
     plato.delete()
-    return redirect('menu.html')
+    return redirect('menu')
 
 class listUsuario(ListView):
     model = User
