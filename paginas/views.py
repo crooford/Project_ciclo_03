@@ -77,7 +77,7 @@ class listUsuario(ListView):
     model = User
     template_name = 'usuarios.html'
 
-def mesero_order(request):
+def mesero_orden(request):
     return render(request, 'mesero-orden.html')
 
 def mesero_mesas(request):

@@ -46,23 +46,28 @@ body {
 
 /*@charset "utf-8";*/
 .tarjeta{
+margin: 10%;
 display:flex;
 flex-direction:column;
 justify-content:space-between;
 width:auto;
 border: 1px solid lightgray;
-box-shadow: 2px 2px 8px 4px #d3d3d3d1;
-border-radius:15px;
+box-shadow: 2px 2px 8px 4px rgba(84, 146, 175, 0.5);
+border-radius:25px;
 font-family: sans-serif;
 }
+
+
 .titulo{
-background: #2a6ff9;
+background: #4291c9;
 font-size: 24px;
-padding: 10px 10px 0 10px;;
+padding: 10px 10px 0 10px;
+border-radius: 25px 25px 0 0 ;
 }
 .cuerpo{
-background: #36abff;
+background: rgb(71, 151, 141);
 padding: 10px;
+border-radius: 0 0 25px 25px;
 }
 .pie{
 background: #6699ff;
