@@ -15,4 +15,7 @@ urlpatterns = [
    path('usuarios.html', listUsuario.as_view(), name='usuarios'),
    path('mesero-mesas.html', views.mesero_mesas, name='mesero_mesas'),
    path('mesero-orden.html', views.mesero_orden, name='mesero_orden'),
+   path('cocinero-comandas-list.html', views.cocinero_list, name='cocinero_list'),
+   path('cocinero-comandas-mesas.html', views.cocinero_mesas, name='cocinero_mesas'),
+   path('cocinero-comandas-todas.html', views.cocinero_todas, name='cocinero_todas'),
 ]

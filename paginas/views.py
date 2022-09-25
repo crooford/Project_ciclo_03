@@ -99,3 +99,12 @@ def mesero_mesas(request):
     mesaform= Mesaform()
     return render(request, 'mesero-mesas.html', {'mesas': mesas, 'mesaform': mesaform})
 
+def cocinero_list(request):
+    return render(request, 'cocinero-comandas-list.html')
+
+def cocinero_todas(request):
+    return render(request, 'cocinero-comandas-todas.html')
+
+def cocinero_mesas(request):
+    return render(request, 'cocinero-comandas-mesas.html')
+
