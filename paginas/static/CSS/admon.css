@@ -1,5 +1,4 @@
 * 
-
 {
     list-style: none;
     text-decoration: none;
@@ -10,6 +9,7 @@
     font-family: 'Open Sans', sans-serif;
     
   }
+
   .body-admon{
     background: url("../img/fondo1.jpg") no-repeat center top;
     background-size: cover;
@@ -95,4 +95,4 @@
     left: 50%;
     top: 50%;
     transform: translate(5%, -50%)
- 
+  }
