@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+<title>
+{% block title %} Lista de Usuarios {% endblock %}
+</title>
+
+
+{% block contenido %} 
+{% load static %} 
+
+<div id="todo">
+    <div class="container mt-5">
+      
+      <div class="row row-cols-3 mt-3 row-cols-md-5 g-3">
+        <div class="col">
+            <div class="card border-none mb-3" style="max-width: 9rem; min-width: 9rem;"> 
+              <a href="cocinero-comandas-list.html">
+                <button type="button" class="btn btn-info">todas las comandas</button>
+            </div>          
+        </div>
+        {% for mesa in mesas %}
+        <div class="col">
+          <div class="card border-none mb-3" style="max-width: 9rem; min-width: 9rem;"> 
+            <a href="cocinero-comandas-mesa.html">
+            <div class="card-img-overlay">
+              <h5 class="card-title">{% block numeromesa %}{{mesa.id}}{% endblock %}</h5>
+            </div></a>
+            <img src={% static 'img/icono_mesa.png' %} class="card-img" style="background-color: lightgreen;" alt="Mesa {{mesa.id}}">
+            <div class="card-footer border-white"><div class="iconfooter"><img  src={% static 'img/icono_ordenar.png' %} class="icono" alt="..."><img src={% static 'img/icono_comida.png' %} class="icono" alt="..."><img src={% static 'img/icono_bebida.png' %} class="icono" alt="..."></div></div>
+          </div>          
+        </div>
+        {% endfor %}
+      </div>
+     
+    </div>
+</div>
+{% endblock %}
