@@ -105,6 +105,6 @@ def cocinero_list(request):
 def cocinero_todas(request):
     return render(request, 'cocinero-comandas-todas.html')
 
-def cocinero_mesas(request):
-    return render(request, 'cocinero-comandas-mesas.html')
+def cocinero_mesa(request):
+    return render(request, 'cocinero-comandas-mesa.html')
 
