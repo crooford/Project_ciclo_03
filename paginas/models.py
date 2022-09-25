@@ -17,23 +17,6 @@ class Menu(models.Model):
     def __str__(self):
         mostrar= self.nombre_plato
         return mostrar
-<<<<<<< Updated upstream
-
-class Mesas(models.Model):
-    id = models.AutoField(primary_key=True)
-    nombre_mesa= models.CharField(max_length=50, blank=False, null=False)
-    def __str__(self):
-        return self.nombre_mesa
-
-class Orden(models.Model):
-    id = models.AutoField(primary_key=True)
-    mesa = models.ForeignKey(Mesas,on_delete=models.CASCADE) 
-    plato= models.ForeignKey(Menu, on_delete=models.CASCADE)
-    cantidad = models.IntegerField(null=False, blank=False)
-    observacion = models.TextField(max_length=255, null=True, blank=True)
-    def __str__(self):
-        return self.id
-=======
     
 
 class Usuario(models.Model):
@@ -50,4 +33,10 @@ class Usuario(models.Model):
     
     def __str__(self):
         return self.user.username
->>>>>>> Stashed changes
+
+class Mesas(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre_mesa = models.CharField(max_length=50, blank=False, null=False)
+
+    def __str__(self):
+        return self.nombre_mesa

@@ -2,12 +2,8 @@ from multiprocessing import context
 from django.shortcuts import render,redirect
 from .forms import CustomUserCreationForm, Usuario
 from django.contrib.auth import login, logout, authenticate
-from .forms import Menuform
-<<<<<<< Updated upstream
-from .models import *
-=======
-from .models import Menu, Usuario
->>>>>>> Stashed changes
+from .forms import Menuform, Mesaform
+from .models import Menu, Usuario, Mesas
 from django.contrib.auth.models import User
 from django.views.generic import ListView
 
@@ -83,9 +79,23 @@ class listUsuario(ListView):
     template_name = 'usuarios.html'
 
 def mesero_orden(request):
-    return render(request, 'mesero-orden.html')
+    platos = Menu.objects.all()
+    entradas= Menu.objects.filter(tipo_plato='Entrada')
+    plato_principal= Menu.objects.filter(tipo_plato='Plato Principal')
+    postres= Menu.objects.filter(tipo_plato='Postre')
+    bebidas= Menu.objects.filter(tipo_plato='Bebida') 
+    otros= Menu.objects.filter(tipo_plato='Otro') 
+    context = {'platos': platos,
+    'entradas': entradas,
+    'plato_principal': plato_principal,
+    'postres': postres,
+    'bebidas': bebidas,
+    'otros': otros
+    }
+    return render(request, 'mesero-orden.html',context)
 
 def mesero_mesas(request):
     mesas = Mesas.objects.all()
-    return render(request, 'mesero-mesas.html', {'mesas': mesas})
+    mesaform= Mesaform()
+    return render(request, 'mesero-mesas.html', {'mesas': mesas, 'mesaform': mesaform})
 

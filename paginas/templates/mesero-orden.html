@@ -1,4 +1,6 @@
-{% extends "base.html" %}
+{% extends "base.html"%}
+{% include "mesero-mesas.html"%}
+
 <title>
 {% block title %} Lista de Usuarios {% endblock %}
 </title>
@@ -11,7 +13,9 @@
     
       <div class="ventana-mesa">
         <div class="encabezado">
-          <h4>Mesa # 1 <a href="mesero-mesas.html"><button type="button" class="btn btn-dark"></button></a> </h4>
+          
+          <h4>Mesa # {% block numeromesa %}{%endblock%}<a href="mesero-mesas.html"><button type="button" class="btn btn-dark"></button></a> </h4>
+          
         </div>      
         <div class="row gx-1">
         
@@ -242,11 +246,9 @@
               <h5 id="ent">Entradas</h5>
             </div>            
             <div class="list-group">
-              <a href="#popup1" id="en1" class="entrada list-group-item list-group-item-action">Aritos de cebolla</a>
-              <a href="#popup1" id="en2" class="entrada list-group-item list-group-item-action">Focaccia</a>
-              <a href="#popup1" id="en3" class="entrada list-group-item list-group-item-action">Nachos</a>
-              <a href="#popup1" id="en4" class="entrada list-group-item list-group-item-action">Palitos de queso</a>
-              <a href="#popup1" id="en5" class="entrada list-group-item list-group-item-action">Tortilla de papa</a>
+              {%for plato in entradas%}
+              <a href="#popup1" id="{{plato.id}}" class="principal list-group-item list-group-item-action">{{plato.nombre_plato}}</a>
+              {%endfor%}
             </div>
 
             <hr>
@@ -254,11 +256,11 @@
               <h5 id="plp">Platos Principales</h5>
             </div>            
             <div class="list-group">
-              <a href="#popup1" id="pp1" class="principal list-group-item list-group-item-action">Pollo a la naranja</a>
-              <a href="#popup1" id="pp2" class="principal list-group-item list-group-item-action">Punta de anca asada</a>
-              <a href="#popup1" id="pp3" class="principal list-group-item list-group-item-action">Bandeja paisa</a>
-              <a href="#popup1" id="pp4" class="principal list-group-item list-group-item-action">Filete de salmón al horno</a>
-              <a href="#popup1" id="pp5" class="principal list-group-item list-group-item-action">Spaghetti a la Bolognesa</a>
+              
+                {%for plato in plato_principal%}
+                <a href="#popup1" id="{{plato.id}}" class="principal list-group-item list-group-item-action">{{plato.nombre_plato}}</a>
+                {%endfor%}
+              
             </div>
             
             <hr>
@@ -266,9 +268,9 @@
               <h5 id="pos">Postres</h5>
             </div>            
             <div class="list-group">
-              <a href="#popup1" id="po1" class="postre list-group-item list-group-item-action">Pastel de chocolate</a>
-              <a href="#popup1" id="po2" class="postre list-group-item list-group-item-action">Pie de limón</a>
-              <a href="#popup1" id="po3" class="postre list-group-item list-group-item-action">Tiramisu</a>
+              {%for plato in postres%}
+                <a href="#popup1" id="{{plato.id}}" class="principal list-group-item list-group-item-action">{{plato.nombre_plato}}</a>
+              {%endfor%}
             </div>
 
             <hr>
@@ -276,11 +278,10 @@
               <h5 id="beb">Bebidas</h5>
             </div>            
             <div class="list-group">
-              <a href="#popup1" id="bb1" class="bebida list-group-item list-group-item-action">Cerveza Heineken</a>
-              <a href="#popup1" id="bb2" class="bebida list-group-item list-group-item-action">Cerveza Poker</a>
-              <a href="#popup1" id="bb3" class="bebida list-group-item list-group-item-action">Jugo de limón</a>
-              <a href="#popup1" id="bb4" class="bebida list-group-item list-group-item-action">Sorbete de guanábana</a>
-              <a href="#popup1" id="bb5" class="bebida list-group-item list-group-item-action">Vino Rosé</a>
+
+              {%for plato in bebidas%}
+                <a href="#popup1" id="{{plato.id}}" class="principal list-group-item list-group-item-action">{{plato.nombre_plato}}</a>
+              {%endfor%}
             </div>
 
             <hr>
@@ -288,12 +289,10 @@
               <h5 id="otr">Otros</h5>
             </div>            
             <div class="list-group">
-              <a href="#popup1" id="ot1" class="otro list-group-item list-group-item-action">Porcion de papa a la francesa</a>
-              <a href="#popup1" id="ot2" class="otro list-group-item list-group-item-action">Porción de papa criolla</a>
-              <a href="#popup1" id="ot3" class="otro list-group-item list-group-item-action">Porción de arroz</a>
-              <a href="#popup1" id="ot4" class="otro list-group-item list-group-item-action">Porción de yuca</a>
+              {%for plato in otros%}
+                <a href="#popup1" id="{{plato.id}}" class="principal list-group-item list-group-item-action">{{plato.nombre_plato}}</a>
+              {%endfor%}
             </div>
-
           </div>
           
           
