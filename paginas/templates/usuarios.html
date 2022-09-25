@@ -7,20 +7,18 @@
 {% block contenido %} 
 {% load static %} 
 <br><br><br><br><br><br>
-<div class="container">    
-   
-    <div class="table-wrapper2 " style=" background: whitesmoke; width: Auto; height: 400px; overflow: scroll;" >
-        <div class="table-title">
+<div style=" width: 500px" class="tarjeta">        
+        <div  class="titulo table-title">
             <div class="row">
                 <div class="col-sm-8"><h2> BASE DE DATOS EMPLEADOS </h2></div>
                 <div class="col-sm-4">
                     <a href="registro.html"
-                    <button type="button" class="btn btn-info add-new"> <i class="fa fa-plus"></i> Agregar</button>
+                    <button type="button" class="btn btn-primary">Agregar</button>
                     </a>
                 </div>
             </div>
         </div>
-        <table class="table table-bordered">
+        <table style=" width: Auto" class="cuerpo table table-bordered">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -29,6 +27,7 @@
                     <th>Apellido</th>
                     <th>Cargo</th>
                     <th>Rol</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,15 +40,14 @@
                     <td>{{user.Cargo}}</td>
                     <td>{{user.Rol}}</td>
                     <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a href="#" class="edit" title="Editar" data-toggle="tooltip"><img src={% static 'img/icono_lapiz.png' %} width="30" height="30" alt="Editar"></a>
+                        <a href="#" class="delete" title="Borrar" data-toggle="tooltip"><img src={% static 'img/icono_borrar.png' %} width="30" height="30" alt="Borrar"></a>
                     </td>
                 </tr>
                 {% endfor%}
             </tbody>
         </table>
-    </div>
+    
 </div>  
 
 {% endblock %}

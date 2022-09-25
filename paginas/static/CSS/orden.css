@@ -173,21 +173,7 @@ input[name="precio"] {
   display: inline-block;
 }
 
-.btn-primary {
-  background:  rgb(58, 121, 112);
-  margin: 15px  40% 0px;
-  box-shadow: 5px 5px  rgba(84, 146, 175, 0.5);
-  border: none;
-  color: rgb(31, 31, 31)
-}
 
-.btn-primary:hover {
-  background:  rgb(253, 253, 253) !important;
-  margin: 15px  40% 0px;
-  box-shadow: 5px 5px  rgba(84, 146, 175, 0.8);
-  border: none;
-  color: rgb(71, 71, 71) !important;
-}
 
 .btn-dark {
   margin: 1px;

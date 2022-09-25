@@ -7,49 +7,42 @@
 {% block contenido %} 
 {% load static %} 
 <br><br><br><br><br><br>
-<div class="container">    
-   
-    <div class="table-wrapper2" style=" background: whitesmoke; width: Auto; height: 400px; overflow: scroll;" >
-        <div class="table-title">
-            <div class="row">
+<div class="tarjeta">
+    <div class="titulo table-title">
+            <div  class="row">
                 <div class="col-sm-8"><h2> BASE DE DATOS MENU </h2></div>
                 <div class="col-sm-4">
                     <a href="crear-plato.html">
-                    <button type="submit" class="btn btn-info add-new"> <i class="fa fa-plus"></i> Agregar Plato</button>
+                    <button type="submit" class="btn btn-primary">Agregar Plato</button>
                     </a>
                 </div>
             </div>
         </div>
-        <table class="table table-bordered">
+        <table class="cuerpo table table-bordered">
             <thead>
-                <tr>
-                    
+                <tr>                    
                     <th>Nombre Plato</th>
                     <th>Precio</th>
                     <th>Tipo de Plato</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 {%for plato in platos%}
                 <tr>
-                    
-                    <td>{{plato.nombre_plato}}</td>
-                    <td>{{plato.precio}}</td>
-                    <td>{{plato.tipo_plato}}</td>
-                    <td>
-                        
-                        <button type="submit" class="btn btn-info add-new"><a href="{% url 'editar' plato.id %}">Editar Plato</a></button>
-                        |
-                        
-                        <button type="submit" class="btn btn-info add-new"><a href="{% url 'eliminar' plato.id %}">Eliminar Plato</a></button>
-                        
-                        
+                    <td title="{{ plato.descripcion }}">{{plato.nombre_plato}}</td>
+                    <td width="100">{{plato.precio}}</td>
+                    <td width="150">{{plato.tipo_plato}}</td>
+                    <td width="100" >                        
+                        <a href="{% url 'editar' plato.id %}"> <img src={% static 'img/icono_lapiz.png' %} width="30" height="30" alt="Editar"></a>
+                        |                        
+                        <a href="{% url 'eliminar' plato.id %}"><img src={% static 'img/icono_borrar.png' %} width="30" height="30" alt="Editar"></a>
                     </td>
                 </tr>  
                 {%endfor%}    
             </tbody>
         </table>
-    </div>
+    
 </div>  
 
 {% endblock %}

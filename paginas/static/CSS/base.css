@@ -46,11 +46,13 @@ body {
 
 /*@charset "utf-8";*/
 .tarjeta{
-margin: 10%;
+margin: 0 10%;
 display:flex;
 flex-direction:column;
 justify-content:space-between;
 width:auto;
+height: auto;
+max-height: 90%;
 border: 1px solid lightgray;
 box-shadow: 2px 2px 8px 4px rgba(84, 146, 175, 0.5);
 border-radius:25px;
@@ -68,6 +70,7 @@ border-radius: 25px 25px 0 0 ;
 background: rgb(71, 151, 141);
 padding: 10px;
 border-radius: 0 0 25px 25px;
+margin: 0;
 }
 .pie{
 background: #6699ff;
@@ -88,3 +91,26 @@ left: 0;
 z-index: 1;
 content: ""
 }
+
+
+
+table {
+    border: hidden;    
+}
+
+.btn-primary {
+    
+    background:  rgb(58, 121, 112);
+    margin: 15px 5px;
+    box-shadow: 5px 5px 5px 0 rgba(83, 83, 83, 0.5);
+    border: none;
+    color: rgb(255, 255, 255)
+  }
+  
+  .btn-primary:hover {    
+    background:  rgb(253, 253, 253) !important;
+    margin: 15px 5px ;
+    box-shadow: -5px -5px 5px 0 rgba(83, 83, 83, 0.5);
+    border: none;
+    color: rgb(71, 71, 71) !important;
+  }
