@@ -7,7 +7,7 @@
 {% block contenido %} 
 {% load static %} 
 <br><br><br><br><br><br>
-<div style=" width: 500px" class="tarjeta">        
+<div style=" min-width: 500px; max-width: 900px" class="tarjeta">        
         <div  class="titulo table-title">
             <div class="row">
                 <div class="col-sm-8"><h2> BASE DE DATOS EMPLEADOS </h2></div>
@@ -41,6 +41,7 @@
                     <td>{{user.Rol}}</td>
                     <td>
                         <a href="#" class="edit" title="Editar" data-toggle="tooltip"><img src={% static 'img/icono_lapiz.png' %} width="30" height="30" alt="Editar"></a>
+                        |
                         <a href="#" class="delete" title="Borrar" data-toggle="tooltip"><img src={% static 'img/icono_borrar.png' %} width="30" height="30" alt="Borrar"></a>
                     </td>
                 </tr>
