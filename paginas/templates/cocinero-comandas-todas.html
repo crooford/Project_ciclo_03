@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 <title>
-{% block title %} Lista de Usuarios {% endblock %}
+{% block title %} Lista de Comandas {% endblock %}
 </title>
 
 
@@ -8,29 +8,60 @@
 {% load static %} 
 
 <div id="todo">
-    <div class="container mt-5">
+  <div class="container mt-5">
+    
+    <div class="row row-cols-3 mt-3 row-cols-md-5 g-3">
       
-      <div class="row row-cols-3 mt-3 row-cols-md-5 g-3">
-        <div class="col">
-            <div class="card border-none mb-3" style="max-width: 9rem; min-width: 9rem;"> 
-              <a href="cocinero-comandas-list.html">
-                <button type="button" class="btn btn-info">todas las comandas</button>
-            </div>          
+      <div class="col">
+        <div class="card border-none mb-3" style="max-width: 9rem; min-width: 9rem;"> 
+          <div class="card-header">
+            {% block numeromesa %} Mesa {{mesa.id}}{% endblock %}<br>
+            Fecha | Hora
+          </div>
+          <a href="#popup1">
+          <div class="card-img-overlay">
+            <h5 class="card-title"></h5>
+          </div></a>
+          
+          <div class="card-footer border-white"><div class="iconfooter"><img  src={% static 'img/icono_ordenar.png' %} class="icono" alt="..."><img src={% static 'img/icono_comida.png' %} class="icono" alt="..."><img src={% static 'img/icono_bebida.png' %} class="icono" alt="..."></div></div>
+        </div>          
+      </div>        
+    </div>     
+  </div>
+
+  <div id="popup1" class="overlay">
+    <div class="popup">
+      <div class="encabezado">
+        <h4>Mesa  |  fecha  |  hora</h4>
+      </div>           
+      <div class="contenido">
+        <div class="card">
+          <div class="card-header">
+            Entrada
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                Nombre producto
+              </div>
+              <div class="col">
+                Cantidad
+              </div>
+              <div class="col">
+                Observaciones
+              </div>
+              <div class="col">
+                <div>
+                  <button type="submit" class="btn btn-success">Enviar</button>
+                  <a href="#"><button type="button" class="btn btn-danger">Cancelar</button></a> 
+                </div>
+              </div>
+              
+            </div>
+          </div>
         </div>
-        {% for mesa in mesas %}
-        <div class="col">
-          <div class="card border-none mb-3" style="max-width: 9rem; min-width: 9rem;"> 
-            <a href="cocinero-comandas-mesa.html">
-            <div class="card-img-overlay">
-              <h5 class="card-title">{% block numeromesa %}{{mesa.id}}{% endblock %}</h5>
-            </div></a>
-            <img src={% static 'img/icono_mesa.png' %} class="card-img" style="background-color: lightgreen;" alt="Mesa {{mesa.id}}">
-            <div class="card-footer border-white"><div class="iconfooter"><img  src={% static 'img/icono_ordenar.png' %} class="icono" alt="..."><img src={% static 'img/icono_comida.png' %} class="icono" alt="..."><img src={% static 'img/icono_bebida.png' %} class="icono" alt="..."></div></div>
-          </div>          
-        </div>
-        {% endfor %}
-      </div>
-     
-    </div>
+      </div> 
+  </div>
+
 </div>
 {% endblock %}
