@@ -40,3 +40,12 @@ class Mesas(models.Model):
 
     def __str__(self):
         return self.nombre_mesa
+
+class Orden(models.Model):
+    id = models.AutoField(primary_key=True)
+    fecha = models.DateTimeField(auto_now_add=True )
+    mesa= models.ForeignKey(Mesas, on_delete=models.CASCADE)
+    plato= models.ManyToManyField('Menu', blank=True, related_name='orden')
+    cantidad= models.IntegerField(null=False, blank=False)
+    observacion = models.TextField(blank=True, null=True)
+    
