@@ -28,9 +28,9 @@
                     </thead>
                     <tbody>
                     <!-- preguntar si se tiene item en mesa 1
-                        {% if  mesa1 %}
+                        
                         y crear ciclo for para traer los items
-                        {% for %}
+                      
                     -->
                     <tr>
                         <td>{{.Mesa}}</td> 
@@ -38,7 +38,7 @@
                         <td>{{.obervaciones}}</td>
                         <td>{{.cantidad}}</td>
                         <!-- preguntar si se tiene item en mesa 1
-                        {% if  pressed a type = button change status %}
+                        
                         
                     -->
                         <td>{{.statuspedido}}</td>
@@ -51,15 +51,15 @@
                         </div></td>
                     </tr>
                     <!-- cerrar el for
-                        {% endfor%}
-                        {% else %}
+                        
+                       
                     -->
                     <h1>No hay pedido en las mesas</h1>
                         </div>
                         </div>
                     </div>
                     <!-- cerrar el for
-                        {% endif}
+                        
                         
                     -->
                     </tbody>
@@ -70,3 +70,4 @@
         </div>         
     </div>
 </div>
+{% endblock %}
