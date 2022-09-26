@@ -2,7 +2,7 @@ from dataclasses import fields
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Menu, Mesas, Usuario
+from .models import Menu, Mesas, Usuario, Orden
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -35,4 +35,9 @@ class Menuform(forms.ModelForm):
 class Mesaform(forms.ModelForm):
     class Meta:
         model=Mesas
+        fields=('__all__')
+
+class Ordenform(forms.ModelForm):
+    class Meta:
+        model = Orden
         fields=('__all__') 

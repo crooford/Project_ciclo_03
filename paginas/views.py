@@ -2,8 +2,8 @@ from multiprocessing import context
 from django.shortcuts import render,redirect
 from .forms import CustomUserCreationForm, Usuario
 from django.contrib.auth import login, logout, authenticate
-from .forms import Menuform, Mesaform
-from .models import Menu, Usuario, Mesas
+from .forms import Menuform, Mesaform , Ordenform
+from .models import Menu, Usuario, Mesas , Orden
 from django.contrib.auth.models import User
 from django.views.generic import ListView
 
@@ -80,6 +80,8 @@ class listUsuario(ListView):
 
 def mesero_orden(request):
     platos = Menu.objects.all()
+    orden = Orden.objects.all()
+    ordenform= Ordenform()
     entradas= Menu.objects.filter(tipo_plato='Entrada')
     plato_principal= Menu.objects.filter(tipo_plato='Plato Principal')
     postres= Menu.objects.filter(tipo_plato='Postre')
@@ -90,7 +92,10 @@ def mesero_orden(request):
     'plato_principal': plato_principal,
     'postres': postres,
     'bebidas': bebidas,
-    'otros': otros
+    'otros': otros,
+    'orden': orden ,
+    'ordenform': ordenform
+
     }
     return render(request, 'mesero-orden.html',context)
 
