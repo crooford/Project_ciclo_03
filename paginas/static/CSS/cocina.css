@@ -1,0 +1,168 @@
+
+.container2 {
+    position: relative;
+    margin:auto;
+    left: 2%;  
+    max-width: 1200px;
+}
+
+.card {
+    box-shadow: 5px 5px 5px 5px rgba(27, 41, 124, 0.5);       
+}
+
+.card-header {
+    background-color: #4291c9;
+    padding: 1px 3px;
+    text-align: center;
+}
+
+.card-img {
+    margin: 5px;
+    align-items: center;
+    display: block;
+    width: auto;    
+    border-radius: 10%;
+}
+
+.card-img-overlay {
+  cursor: pointer;
+  height: 72%;
+  width: 97%;
+  
+}
+
+.card-title {
+    width: 50px;
+    background-color: aliceblue;
+    text-align: center;
+    margin-top: 8%;
+    margin-left: 27%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 50%;
+    color: black;
+    text-shadow: 1px 1px cadetblue;
+  }
+
+
+.card-footer {
+    width: 100%;
+    padding: 5px 3px;
+    
+}
+
+.card_content {
+    max-height: 12rem;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+
+
+.renglon {
+    padding: 2%;
+}
+
+.iconfooter2 {
+ text-align: center;
+}
+
+.expandir {
+    margin: 0; 
+}
+
+.nomprod {
+    padding-right: 0;
+    margin: 0;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.expandir:hover {
+    margin: 0; 
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 100ms;
+    visibility: hidden;
+    opacity: 0;
+    overflow: auto;
+
+    
+  }
+  
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup2 {
+    margin: 5px auto;
+    padding: 0px;
+    background: whitesmoke;
+    border-radius: 18px;
+    width: 45%;  
+    min-height: 500px;
+    overflow: auto;
+    max-width: 500px;
+    position: relative;
+    transition: all 0.1s ease-in-out;
+
+  }
+  
+  .popup2 h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+
+  }
+  
+  .popup2 .contenido2 {
+    padding: 10px;
+    max-height: 80%;
+    overflow: auto;
+    overflow-x: hidden;
+  }
+  
+  @media screen and (max-width: 700px){
+    .popup2 {
+      width: 70%;
+    }
+  }
+
+.renglon2 {
+    margin: auto;
+    padding: 0 0;
+}
+
+.obsorden {
+  margin-top: 3px;
+  font-style: italic;
+}
+
+.renglon2 .col {
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+max-width: 90%
+}
+
+.comanda1 {
+  margin-bottom: 5px;
+}
+
+li
+ {
+    margin: 0 2px;
+  }
+
+  .botonestones {
+    margin: 15px;
+  }

@@ -6,7 +6,7 @@
 
 {% block contenido %} 
 {% load static %} 
-<div class
+
 <div class="container mt-5" style="background-color: rgba(255, 255, 255, 0.616);">
     <div class="row row-cols-1 mt-8">
       <div class="encabezado" style="background-color: rgb(71, 125, 150);">
@@ -26,32 +26,31 @@
               </tr>
             </thead>
             <tbody>
-              {#<!-- preguntar si se tiene item en mesa 1
-                {% if  mesa1 in mesas%}
+              <!-- preguntar si se tiene item en mesa 1
+
                 y crear ciclo for para traer los items
-                {% for %}
-              -->#}
+              -->
+              
               <tr>
                 <td>{{.Mesa}}</td> 
                 <td>{{.item}}</td>
                 <td>{{.obervaciones}}</td>
                 <td>{{.cantidad}}</td>
-                <!-- preguntar si se tiene item en mesa 1
-                {% if  pressed a type = button change status %} 
+                <!-- preguntar si se tiene item en mesa 1-->
                 
-              -->
+              
                 <td>{{.statuspedido}}</td>
               </tr>
-              <!-- cerrar el for
-                {% endfor%}
-                {% else %}
+              <!-- cerrar el for -->
+               
+                
+              
               <h1>No hay pedido en la mesa</h1>
                   </div>
                 </div>
               </div>
-              cerrar el for
-                {% endif}
-            -->
+              <!-- cerrar el for -->
+              
             </tbody>
           </table>
           <div class="col">
@@ -65,6 +64,6 @@
         </div>         
         </div>
       </div>
-  
-{%endblock%}
+
+{% endblock %}
 
