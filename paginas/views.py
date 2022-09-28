@@ -2,8 +2,8 @@ from multiprocessing import context
 from django.shortcuts import render,redirect
 from .forms import CustomUserCreationForm, Usuario
 from django.contrib.auth import login, logout, authenticate
-from .forms import Menuform, Mesaform , Ordenform
-from .models import Menu, Usuario, Mesas , Orden
+from .forms import Menuform, Mesaform , Ordenmesaform, Ordenplatoform
+from .models import Menu, Usuario, Mesas , Ordenplato, Ordenmesa
 from django.contrib.auth.models import User
 from django.views.generic import ListView
 
@@ -80,8 +80,7 @@ class listUsuario(ListView):
 
 def mesero_orden(request):
     platos = Menu.objects.all()
-    orden = Orden.objects.all()
-    ordenform= Ordenform()
+    
     entradas= Menu.objects.filter(tipo_plato='Entrada')
     plato_principal= Menu.objects.filter(tipo_plato='Plato Principal')
     postres= Menu.objects.filter(tipo_plato='Postre')
@@ -93,8 +92,7 @@ def mesero_orden(request):
     'postres': postres,
     'bebidas': bebidas,
     'otros': otros,
-    'orden': orden ,
-    'ordenform': ordenform
+   
 
     }
     return render(request, 'mesero-orden.html',context)
@@ -108,7 +106,19 @@ def cocinero_list(request):
     return render(request, 'cocinero-comandas-list.html')
 
 def cocinero_todas(request):
-    return render(request, 'cocinero-comandas-todas.html')
+    orden= Ordenmesa.objects.all()
+    ordenplato= Ordenplato.objects.all()
+    menu=Menu.objects.all()
+    
+    mesa_1= Ordenplato.objects.filter(mesa=1)
+    context= {
+        'orden': orden ,
+        'ordenplato': ordenplato,
+        'menu': menu,
+        'mesa_1': mesa_1,
+        
+    }
+    return render(request, 'cocinero-comandas-todas.html', context)
 
 def cocinero_mesa(request):
     return render(request, 'cocinero-comandas-mesa.html')

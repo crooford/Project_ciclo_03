@@ -10,355 +10,49 @@
 <div id="todo">
   <div class="container2 mt-3">
     
-    <div class="row row-cols-2 mt-3 row-cols-md-4 g-3">
+    <div class="row row-cols-1 mt-3 row-cols-md-3 g-3">
       {% for order in orden %}
         <!-- Inicio tarjeta orden-->
         <div class="col">       
-          <div class="card border-none mb-3" style="max-width: 15rem; min-width: 13rem;"> 
-            <div class="card-header">
+          <div class="card border-none mb-3" style="max-width: 20rem; min-width: 15rem;"> 
+            <div class="card-header" id="{{order.mesa}}">
               {{order.mesa}} <br>
-              _Fecha_ | _Hora_
+              {{order.date}}
             </div>
             
-            {% for item in ordenitem %}
-              
+            {% for item in ordenplato %}
+            {%if order.mesa == item.mesa %} 
               <div class="card_content">
                 <div class="renglon row">              
-                  <div class="col nomprod">
-                    {{item.menu_id}}
-                  </div>
-                  <div class="col-auto">
-                    {{item.cantidad}}
-                  </div>
+                  <ul class="list-unstyled">
+              
+                    <li> 
+                      <div class="row renglon2"> 
+                        <div class="col">{{item.plato}}</div>
+                        <div class="col-auto">{{item.cantidad}}</div>
+                      </div>
+                      <ul>
+                        {%if item.observacion%}
+                        <li class="obsorden renglon2">
+                          {{item.observacion}}
+                        </li> 
+                        {%endif%}               
+                      </ul>
+                    </li>             
+                  </ul>
                 </div>
               </div>
-              
+            {%endif%} 
             {%endfor%}
             
             <div class="card-footer border-white">            
               <div class="iconfooter2">
-                <a href="#popup1"><button type="button" class="btn expandir btn-primary">Expandir</button></a>
+                <a href=""><button type="button" class="btn expandir btn-primary">Orden Lista</button></a>
               </div>
             </div>               
           </div>
         </div>
-      {% endfor %}
-      
+      {% endfor %}  
     </div>
-    
-
-  <!-- INICIO POPUP -->
-
-  <div id="popup1" class="overlay">
-    <div class="popup2">
-      <div class="encabezado">
-        <h4>Mesa  |  fecha  |  hora</h4>
-      </div>           
-      <div class="contenido2">
-        
-        <!-- Inicio seccion tipo de producto-->
-        <div class="comanda1 card">
-          <div class="card-header">
-            Tipo_producto
-          </div>
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto</div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-          
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto</div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-
-          
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto  </div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones 
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-
-         </div>
-        <!-- FINAL seccion tipo de producto-->
-
-
-        
-        <!-- Inicio seccion tipo de producto-->
-        <div class="comanda1 card">
-          <div class="card-header">
-            Tipo_producto
-          </div>
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto</div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-          
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto</div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-
-          
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto  </div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones 
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-
-         </div>
-        <!-- FINAL seccion tipo de producto-->
-
-
-        
-        <!-- Inicio seccion tipo de producto-->
-        <div class="comanda1 card">
-          <div class="card-header">
-            Tipo_producto
-          </div>
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto</div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-          
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto</div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-
-          
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto  </div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones 
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-
-         </div>
-        <!-- FINAL seccion tipo de producto-->
-    
- 
-        
-        <!-- Inicio seccion tipo de producto-->
-        <div class="comanda1 card">
-          <div class="card-header">
-            Tipo_producto
-          </div>
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto</div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-          
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto</div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-
-          
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto  </div>
-                <div class="col-auto">_Cant_ </div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones 
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-
-         </div>
-        <!-- FINAL seccion tipo de producto-->
-
- 
-        
-        <!-- Inicio seccion tipo de producto-->
-        <div class="comanda1 card">
-          <div class="card-header">
-            Tipo_producto
-          </div>
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto</div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-          
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto</div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-
-          
-          <!-- Inicio seccion producto ordenado de el tipo X-->
-          <ul class="list-unstyled">
-            <li> 
-              <div class="row renglon2"> 
-                <div class="col">Nombre_producto  </div>
-                <div class="col-auto">_Cant_</div>
-              </div>
-              <ul>
-                <li class="obsorden renglon2">
-                  Observaciones 
-                </li>                
-              </ul>
-            </li>            
-          </ul>
-          <!-- FINAL seccion producto ordenado de el tipo X-->
-
-         </div>
-        <!-- FINAL seccion tipo de producto-->
-
-
-
-        <div class="col">
-          <div class="botonestones">
-            <button type="submit" class="btn btn-success">Orden lista</button>
-            <a href="#"><button type="button" class="btn btn-danger">Cancelar</button></a> 
-          </div>
-        </div>
-      </div> 
-  </div>
-
 </div>
 {% endblock %}

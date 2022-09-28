@@ -41,5 +41,23 @@ class Mesas(models.Model):
     def __str__(self):
         return self.nombre_mesa
 
+class Ordenmesa(models.Model):
+    id = models.AutoField(primary_key=True)
+    mesa = models.ForeignKey(Mesas, on_delete=models.CASCADE)
+    platos= models.ManyToManyField(Menu, through='Ordenplato')
+    date= models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f'Orden: {self.id} para la {self.mesa}, fecha {self.date.strftime("%b %d %I: %M %p")}.'
     
+
+class Ordenplato(models.Model):
+    id = models.AutoField(primary_key=True)
+    orden= models.ForeignKey(Ordenmesa, on_delete=models.CASCADE)
+    mesa = models.ForeignKey(Mesas, on_delete=models.CASCADE)
+    plato= models.ForeignKey(Menu, on_delete=models.CASCADE)
+    cantidad= models.IntegerField(default=1)
+    observacion= models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f'Plato: {self.plato}, cantidad: {self.cantidad} para la {self.mesa}.'
