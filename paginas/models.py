@@ -20,7 +20,7 @@ class Menu(models.Model):
     
 
 class Usuario(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     Cargo = models.CharField (
         max_length=10,
         choices=[('Cocinero', 'Cocinero'), ('Mesero', 'Mesero')]                                           
