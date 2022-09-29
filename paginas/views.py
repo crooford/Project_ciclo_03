@@ -6,12 +6,14 @@ from .forms import Menuform, Mesaform , Ordenmesaform, Ordenplatoform
 from .models import Menu, Usuario, Mesas , Ordenplato, Ordenmesa
 from django.contrib.auth.models import User
 from django.views.generic import ListView
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def usuarios(request):
     usuarios = User.objects.all()
     context = {'usuarios': usuarios}
     return render(request, 'usuarios.html', context)
+@login_required
 def ppal(request):
     return render(request, 'ppal.html')
 def registro(request):
