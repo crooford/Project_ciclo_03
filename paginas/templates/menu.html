@@ -7,11 +7,12 @@
 {% block contenido %} 
 {% load static %} 
 <br><br><br><br><br><br>
-<div style=" min-width: 400px; max-width: 800px" class="tarjeta">
+<div class="tarjeta1">
+    
     <div class="titulo table-title">
         <div  class="row">
             <div class="col-sm-8">
-                <h2> BASE DE DATOS MENU </h2>
+                <h3> BASE DE DATOS MENU </h3>
             </div>
             <div class="col-sm-4">
                 <a href="crear-plato.html">
@@ -20,30 +21,32 @@
             </div>
         </div>
     </div>
-    <table class="cuerpo  table-bordered">
-        <thead>
-            <tr>                    
-                <th>Nombre Plato</th>
-                <th>Precio</th>
-                <th>Tipo de Plato</th>
-                <th>Acciones</th>
-            </tr>
+    <table class="table1 table-borderless">
+        <thead class="thead1">
+        <tr class="tr1">
+            <th class="th1 table-dark" >Nombre Plato</th>
+            <th class="th2 table-dark" >Precio</th>
+            <th class="th3 table-dark" >Tipo de Plato</th>
+            <th class="th4 table-dark" >Acciones</th>
+        </tr>
         </thead>
-        <tbody>
+        
+        <tbody  class="tbody1">
             {%for plato in platos%}
-            <tr>
-                <td title="{{ plato.descripcion }}">{{plato.nombre_plato}}</td>
-                <td width="100">{{plato.precio}}</td>
-                <td width="150">{{plato.tipo_plato}}</td>
-                <td width="100" >                        
+            <tr class="tr1">
+                <td class="td1" title="{{ plato.descripcion }}">{{plato.nombre_plato}}</td>
+                <td class="td2" >{{plato.precio}}</td>
+                <td class="td3" >{{plato.tipo_plato}}</td>
+                <td class="td4" >                        
                     <a href="{% url 'editar' plato.id %}"> <img src={% static 'img/icono_lapiz.png' %} width="30" height="30" alt="Editar"></a>
                     |                        
                     <a href="{% url 'eliminar' plato.id %}"><img src={% static 'img/icono_borrar.png' %} width="30" height="30" alt="Editar"></a>
                 </td>
             </tr>  
-            {%endfor%}    
+            {%endfor%}       
         </tbody>
-    </table>
+        
+    </table>    
     
 </div>  
 

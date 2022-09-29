@@ -1,0 +1,80 @@
+.tarjeta1 {
+    margin: auto;
+    margin-top: -50px;    
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    width: 70%;
+    border: 1px solid lightgray;
+    box-shadow: 2px 2px 8px 4px rgba(46, 76, 90, 0.8);
+    border-radius:25px;
+    font-family: sans-serif;    
+    min-width: 450px ;
+    }
+
+
+
+.table1 {
+
+    width: 100%;
+    background: rgb(71, 151, 141);
+    border-radius:0 0 25px 25px;    
+}
+
+.thead1, .tbody1, .tr1, .td1, .th2 .th3 .th4 .th5 { display: block; }
+
+.tr1:after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.thead1  {
+    width: 100%; 
+    border-bottom: solid 1px;
+    padding-right: 15px;
+   
+    
+
+    /*text-align: left;*/
+
+    overflow-x: hidden;
+}
+
+.tbody1 {
+    height: 500px;    
+    overflow-y: auto;
+    margin-bottom: 10px;
+    margin-right: 5px;
+
+}
+
+.tbody1 .td1, .th1 {
+    border-top: solid 1px;
+    margin-left: 5px;
+    width: 30%;
+    float: left;
+
+}
+
+.tbody1 .td2, .th2 {
+    border-top: solid 1px;
+    width: 18%;
+    float: left;
+}
+
+.tbody1 .td3, .th3 {
+    border-top: solid 1px;
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+
+.tbody1 .td4, .th4 {
+    border-top: solid 1px;
+    width: 25%;
+    float: left;
+    text-align: right;
+}
+
