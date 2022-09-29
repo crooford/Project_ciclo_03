@@ -22,13 +22,13 @@ class Menu(models.Model):
 class Usuario(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     Cargo = models.CharField (
-        max_length=10,
-        choices=[('Cocinero', 'Cocinero'), ('Mesero', 'Mesero')]                                           
+        max_length=13,
+        choices=[('Administrador', 'Administrador'), ('Cocinero', 'Cocinero'), ('Mesero', 'Mesero')]                                           
     )
     
     Rol = models.CharField (
-        max_length=12,
-        choices=[('Cocina1', 'Cocina1'), ('Cocina2', 'Cocina2'), ('Cocina3', 'Cocina3'), ('Bebidas1', 'Bebidas1'), ('Bebidas2', 'Bebidas2')]                                             
+        max_length=13,
+        choices=[('Administrador', 'Administrador'), ('Cocina', 'Cocina'), ('Bebidas', 'Bebidas'), ('Mesero', 'Mesero')]                                             
     )
     
     def __str__(self):

@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 <title>
-{% block title %} LOGIN {% endblock %}
+{% block title %}  {% endblock %}
 </title>
 
 
 
 {% block contenido %} 
+
+{% if request.user.usuario.Cargo == 'Mesero' %}
+    <meta http-equiv="REFRESH" content="0;href=/../mesero-mesas.html">
+    {% elif request.user.usuario.Cargo == 'Cocinero' %}
+        <meta http-equiv="REFRESH" content="0;href=/../cocinero-comandas-todas.html">
+    {% endelif}
+{% endif %}
+
 
 {% load static %} 
  
