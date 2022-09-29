@@ -54,3 +54,10 @@
     width: 25%;
     border-radius: 15%;
 }
+
+.botonfijo {
+  z-index: 1;
+  position: fixed;
+  top: 60px;
+  right: 50px; 
+}

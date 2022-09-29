@@ -2,9 +2,9 @@
   position: relative;
 
   min-height: 510px;
-  min-width: 800px;
+  min-width: 350px;
   max-height: 510px;
-  max-width: 800px; 
+  max-width: 720px; 
   background-image: url(/static/img/fondo1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -29,13 +29,13 @@ h4 {
   overflow: scroll;
   overflow-x: auto;
   position: relative;
-  margin: auto;
-  padding: 0;
- 
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 0; 
   min-height: 410px;
-  min-width: 365px;
+  min-width: 260px;
   max-height: 410px;
-  max-width: 200px; 
+  max-width: 680px; 
   box-shadow: 1px 1px rgb(0, 0, 0), 2px 2px rgb(255, 255, 255),3px 3px rgb(0, 0, 0), 4px 4px rgb(255, 255, 255), 5px 5px rgb(0, 0, 0), 6px 6px rgb(255, 255, 255), 6px 6px 6px 6px rgba(8, 8, 8, 0.5);
 }
 
@@ -177,10 +177,12 @@ input[name="precio"] {
 
 .btn-dark {
   margin: 1px;
-  position: relative;
+  position: auto;
   left: 80%;
   vertical-align: text-top;
+  align-items: flex-end;
   background:  red !important;
   height: 25px;
+  
 }
 

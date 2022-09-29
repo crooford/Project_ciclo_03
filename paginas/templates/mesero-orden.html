@@ -8,253 +8,1060 @@
 
 {% block contenido %} 
 {% load static %} 
+
   <div id="todo">
     <div class="container mt-5">
     
       <div class="ventana-mesa">
         <div class="encabezado">
-          
-          <h4>Mesa # {% block numeromesa %}{%endblock%}<a href="mesero-mesas.html"><button type="button" class="btn btn-dark"></button></a> </h4>
+          <form action="mesero-orden.html" id="blocdepedidos" method="POST">
+          {% csrf_token%}
+          <h4> <select name="" id="">
+           
+            <option disabled selected="true"  value="">... </option> 
+            {% for mesa in mesas %}
+            <option value=""> </option>
+            {% endfor %}
+          </select> <button type="button" class="btn btn-dark"></button></a> </h4>
           
         </div>      
         <div class="row gx-1">
         
           <div class="col notepad">
-            <form action="mesero-orden.html" id="blocdepedidos" method="POST">
+            
             <table class="table table-sm">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
+              <thead>        
+                <tr>                  
                   <th scope="col">Item</th>
-                  <th  scope="col">Cant</th>
-                  <th scope="col">Subt</th>
+                  <th scope="col">Cant</th>
                   <th scope="col">Observaciones</th>
                 </tr>
               </thead>
               <tbody class="table-group-divider">
-                <tr id="renglon01">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon01">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value="{{plato.nombre_plato}}">{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon02">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon02">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon03">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon03">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon04">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon04">                
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon05">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon05">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon06">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon06">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon07">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon07">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon08">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon08">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon09">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon09">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon10">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon10">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon11">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon11">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon12">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon12">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon13">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon13">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon14">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon14">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon15">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon15">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon16">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon16">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon17">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon17">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon18">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon18">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon19">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon19">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon20">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon20">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon21">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon21">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon22">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon22">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon23">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon23">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon24">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon24">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon25">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon25">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon26">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon26">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon27">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon27">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon28">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon28">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon29">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon29">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon30">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon30">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon31">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon31">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>
-                <tr id="renglon32">
-                  <td><a href="#popup1"><img src={% static 'img/icono_lapiz.png' %} width="18" height="18" class="edit-pencil" alt="edit"></a></td>
-                  <td><input disabled type="text" style="width: 30ch;" name="item" value="" /></td>
-                  <td>x<input disabled type="text" style="width: 3ch;" name="cantidad" value="" /></td>
-                  <td><input disabled type="text" style="width: 10ch;" name="precio" value="" /></td>
-                  <td><textarea disabled id="obse" name="obse" rows="1" cols="50"></textarea></td>
+                <tr id="renglon32">                  
+                  <td><select name="item">
+                    <option disabled selected="true"  value="">... </option>
+                    <option disabled value="entrada"> <strong>ENTRADA</strong> </option>
+                    {%for plato in entradas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="palto principal"><strong>PLATO PRINCIPAL</strong></option>
+                    {%for plato in plato_principal%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="postre"><strong>POSTRE</strong></option>
+                    {%for plato in postres%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="bebida"><strong>BEBIDA</strong></option>
+                    {%for plato in bebidas%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+                    
+                    <option disabled value="OTRO"><strong>OTRO</strong></option>
+                    {%for plato in otros%}
+                    <option value={{plato.nombre_plato}}>{{plato.nombre_plato}}</option>
+                    {%endfor%}
+
+                  </select></td>
+                  <td>x<input  type="number" style="width: 6ch;" name="cantidad" min="1" max="50" /></td>
+                  <td><textarea  id="obse" name="obse" rows="1" cols="50"></textarea></td>
                 </tr>             
               </tbody>
             </table>
@@ -262,71 +1069,7 @@
           </div>
 
 
-          <div class="col botones">
-            <div class="list-group">
-              <a href="#ent" id="entradas" class="categoria list-group-item list-group-item-action">Entradas</a>
-              <a href="#plp" id="principal" class="categoria list-group-item list-group-item-action">Plato principal</a>
-              <a href="#pos" id="postres" class="categoria list-group-item list-group-item-action">Postres</a>
-              <a href="#beb" id="bebidas" class="categoria list-group-item list-group-item-action">Bebidas</a>
-              <a href="#otr" id="otros" class="categoria list-group-item list-group-item-action">Otros</a>
-            </div>
-          </div>
-
-
-          <div class="col listado">
-            
-            <div>
-              <h5 id="ent">Entradas</h5>
-            </div>            
-            <div class="list-group">
-              {%for plato in entradas%}
-              <a href="#popup1" id="{{plato.id}}" class="principal list-group-item list-group-item-action">{{plato.nombre_plato}}</a>
-              {%endfor%}
-            </div>
-
-            <hr>
-            <div>
-              <h5 id="plp">Platos Principales</h5>
-            </div>            
-            <div class="list-group">
-              
-                {%for plato in plato_principal%}
-                <a href="#popup1" id="{{plato.id}}" class="principal list-group-item list-group-item-action">{{plato.nombre_plato}}</a>
-                {%endfor%}
-              
-            </div>
-            
-            <hr>
-            <div>
-              <h5 id="pos">Postres</h5>
-            </div>            
-            <div class="list-group">
-              {%for plato in postres%}
-                <a href="#popup1" id="{{plato.id}}" class="principal list-group-item list-group-item-action">{{plato.nombre_plato}}</a>
-              {%endfor%}
-            </div>
-
-            <hr>
-            <div>
-              <h5 id="beb">Bebidas</h5>
-            </div>            
-            <div class="list-group">
-
-              {%for plato in bebidas%}
-                <a href="#popup1" id="{{plato.id}}" class="principal list-group-item list-group-item-action">{{plato.nombre_plato}}</a>
-              {%endfor%}
-            </div>
-
-            <hr>
-            <div>
-              <h5 id="otr">Otros</h5>
-            </div>            
-            <div class="list-group">
-              {%for plato in otros%}
-                <a href="#popup1" id="{{plato.id}}" class="principal list-group-item list-group-item-action">{{plato.nombre_plato}}</a>
-              {%endfor%}
-            </div>
-          </div>
+        
           
           
           <br>
@@ -336,48 +1079,7 @@
           <div>
             <button class="btn btn-primary" type="submit" form="blocdepedidos">Enviar Comanda</button>
           </div>
-
-          
-          <div id="popup1" class="overlay">
-            <div class="popup">
-              <div class="encabezado">
-                <h4>Nombre del producto</h4>
-              </div>              
-              
-              <div class="contenido">
-                Descripcion corta del producto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempus augue sit amet tempus porta. 
-                <div>
-                  <hr>
-                  <form action="#">
-                    <div>
-                      <label>
-                        Cantidad: 
-                        <input 
-                        type="number" 
-                        min="0" 
-                        max="20"
-                        
-                        value="0">
-                      </label>
-                    </div>
-                    <div class="obs">
-                      <label>Observaciones:<br>
-                        <textarea id="observaciones" name="observaciones" rows="4" cols="50" placeholder="Escriba aqui observaciones"></textarea>
-                      </label>                      
-                    </div>
-                    <div>
-                      <button type="submit" class="btn btn-success">Enviar</button>
-                      <a href="#"><button type="button" class="btn btn-danger">Cancelar</button></a> 
-                    </div>
-
-                  </form>
-                </div>
-              </div>
-              
-            
-          </div>
-          
-      </div>
+                    
     </div>
   </div>
     {% endblock %}

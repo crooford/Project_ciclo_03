@@ -7,24 +7,57 @@
 {% block contenido %} 
 {% load static %} 
 
-<div id="todo">
-    <div class="container mt-5">
-      
-      <div class="row row-cols-3 mt-3 row-cols-md-5 g-3">
-        {% for mesa in mesas %}
-        <div class="col">
-          <div class="card border-none mb-3" style="max-width: 9rem; min-width: 9rem;"> 
-            <a href="mesero-orden.html">
-            <div class="card-img-overlay">
-              <h5 class="card-title">{% block numeromesa %}{{mesa.id}}{% endblock %}</h5>
-            </div></a>
-            <img src={% static 'img/icono_mesa.png' %} class="card-img" style="background-color: lightgreen;" alt="Mesa {{mesa.id}}">
-            <div class="card-footer border-white"><div class="iconfooter"><img  src={% static 'img/icono_ordenar.png' %} class="icono" alt="..."><img src={% static 'img/icono_comida.png' %} class="icono" alt="..."><img src={% static 'img/icono_bebida.png' %} class="icono" alt="..."></div></div>
-          </div>          
+
+<div id="todo"> 
+
+ <div> 
+    <a href="/../mesero-orden.html"><button type="button" class="btn botonfijo expandir btn-primary"> <strong>+</strong> Orden</button></a>  
+  </div>   
+  <div class="container2 mt-5">
+    
+    <div class="row row-cols-1 mt-3 row-cols-md-3 g-3">
+      {% for order in orden %}
+        <!-- Inicio tarjeta orden-->
+        <div class="col">       
+          <div class="card border-none mb-3" style="max-width: 20rem; min-width: 15rem;"> 
+            <div class="card-header" id="{{order.mesa}}">
+              {{order.mesa}} <br>
+              {{order.date}}
+            </div>
+            
+            {% for item in ordenplato %}
+            {%if order.mesa == item.mesa %} 
+              <div class="card_content">
+                <div class="renglon row">              
+                  <ul class="list-unstyled">
+              
+                    <li> 
+                      <div class="row renglon2"> 
+                        <div class="col">{{item.plato}}</div>
+                        <div class="col-auto">{{item.cantidad}}</div>
+                      </div>
+                      <ul>
+                        {%if item.observacion%}
+                        <li class="obsorden renglon2">
+                          {{item.observacion}}
+                        </li> 
+                        {%endif%}               
+                      </ul>
+                    </li>             
+                  </ul>
+                </div>
+              </div>
+            {%endif%} 
+            {%endfor%}
+            
+            <div class="card-footer border-white">            
+              <div class="iconfooter2">
+                <a href=""><button type="button" class="btn expandir btn-primary">Editar Orden</button></a>
+              </div>
+            </div>               
+          </div>
         </div>
-        {% endfor %}
-      </div>
-     
+      {% endfor %}  
     </div>
 </div>
 {% endblock %}
