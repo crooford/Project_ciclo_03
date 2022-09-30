@@ -61,3 +61,28 @@
   top: 60px;
   right: 50px; 
 }
+
+.columna {
+  float: left;
+  padding: 10px;
+  height: auto; 
+}
+
+.izquierda {
+  width: 30%;
+}
+
+.derecha {
+  width: 70%;
+}
+
+
+.filas:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.cole {
+  width:22rem !important;
+}

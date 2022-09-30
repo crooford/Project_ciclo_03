@@ -186,3 +186,16 @@ input[name="precio"] {
   
 }
 
+.ventana-mesa3 {
+  position: relative;
+  min-height: 510px;
+  min-width: 200px;
+  max-height: 510px;
+  max-width: 200px; 
+  background-image: url(/static/img/fondo1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  border: 3px solid silver;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 5px rgba(84, 146, 175, 0.5), -5px -5px 5px 5px rgba(84, 146, 175, 0.5), -5px 5px 5px 5px rgba(84, 146, 175, 0.5), 5px -5px 5px 5px rgba(84, 146, 175, 0.5);
+}

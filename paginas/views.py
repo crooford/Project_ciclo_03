@@ -108,12 +108,19 @@ def mesero_mesas(request):
     ordenmesa= Ordenmesa.objects.all()
    
     mesas=Mesas.objects.all()
-   
-    
+    if request.method == 'GET':
+            formulariom = Ordenmesasform()
+    else:
+            formulariom = Ordenmesasform(request.POST)
+            if formulariom.is_valid():
+                formulariom.save()
+                return redirect('mesero_mesas')
+        
     context= {
-        'orden': orden ,
-        'ordenmesa': ordenmesa,
-        'mesas': mesas,
+    'orden': orden ,
+    'ordenmesa': ordenmesa,
+    'mesas': mesas,
+    'formulariom': formulariom,
         
         
        

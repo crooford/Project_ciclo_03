@@ -15,14 +15,15 @@
       <div class="ventana-mesa">
         <div class="">
           <form action="mesero-orden.html" id="blocdepedidos" method="POST">
-          {% csrf_token%}
-          {{formulariom.as_p}}
-         
-          <div>
-            <button class="btn btn-primary" type="submit" form="blocdepedidos">Enviar Comanda</button>
-          </div>
+            {% csrf_token%}
+            {{formulariom.as_p}}
+            
+            <div>
+                <button class="btn btn-primary" type="submit" form="blocdepedidos">Enviar Comanda</button>
+            </div>
           </form>
-          </div>
+
+      </div>
     
           
                     
