@@ -40,11 +40,13 @@ def registro(request):
     context = {'formuse' : formuser, 'usuario_form': usuario_form}    
     return render(request, 'registration/registro.html', context)
 
+@login_required(login_url='/accounts/login/')
 def menu(request):
     platos = Menu.objects.all()
     context = {'platos': platos}
     return render(request,'menu.html', context)
 
+@login_required(login_url='/accounts/login/')
 def crear_plato(request):
     if request.method == 'GET':
         formulariom = Menuform()
@@ -55,6 +57,7 @@ def crear_plato(request):
              return redirect('menu')    
     return render(request, 'crear-plato.html',{'formulariom': formulariom})
 
+@login_required(login_url='/accounts/login/')
 def editar_plato(request,id):
     plato= Menu.objects.get(id=id)
     if request.method == 'GET':
@@ -72,6 +75,7 @@ def editar_plato(request,id):
             return redirect('menu')
     return render(request,'editar-plato.html',contexto) 
 
+@login_required(login_url='/accounts/login/')
 def eliminar_plato(request,id):
     plato = Menu.objects.get(id=id)
     plato.delete()
@@ -117,9 +121,11 @@ def mesero_mesas(request):
     }
     return render(request, 'mesero-mesas.html', context)
 
+@login_required(login_url='/accounts/login/')
 def cocinero_list(request):
     return render(request, 'cocinero-comandas-list.html')
 
+@login_required(login_url='/accounts/login/')
 def cocinero_todas(request):
     orden= Ordenmesas.objects.all()
     ordenmesa= Ordenmesa.objects.all()
@@ -134,6 +140,7 @@ def cocinero_todas(request):
     }
     return render(request, 'cocinero-comandas-todas.html', context)
 
+@login_required(login_url='/accounts/login/')
 def editar_orden(request,id):
     plato= Menu.objects.get(id=id)
     if request.method == 'GET':
@@ -154,7 +161,7 @@ def editar_orden(request,id):
 
 
 
-
+@login_required(login_url='/accounts/login/')
 def cocinero_mesa(request):
     return render(request, 'cocinero-comandas-mesa.html')
 
