@@ -80,7 +80,9 @@ def eliminar_plato(request,id):
 class listUsuario(ListView):
     model = User
     template_name = 'usuarios.html'
-
+    
+    
+@login_required(login_url='/accounts/login/')
 def mesero_orden(request):
     if request.method == 'GET':
         formulariom = Ordenmesasform()
@@ -96,6 +98,7 @@ def mesero_orden(request):
     }
     return render(request, 'mesero-orden.html',context)
 
+@login_required(login_url='/accounts/login/')
 def mesero_mesas(request):
     orden= Ordenmesas.objects.all()
     ordenmesa= Ordenmesa.objects.all()
