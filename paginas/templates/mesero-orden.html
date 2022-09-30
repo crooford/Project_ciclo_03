@@ -11,22 +11,20 @@
 
   <div id="todo">
     <div class="container mt-5">
-      {% load crispy_forms_tags %}
+      
       <div class="ventana-mesa">
-        <div class="encabezado">
+        <div class="">
           <form action="mesero-orden.html" id="blocdepedidos" method="POST">
           {% csrf_token%}
           {{formulariom.as_p}}
-          {{ form | crispy }}
-          </form>
-          </div>
-          <br>
-          <div>
-
-          </div>
+         
           <div>
             <button class="btn btn-primary" type="submit" form="blocdepedidos">Enviar Comanda</button>
           </div>
+          </form>
+          </div>
+    
+          
                     
     </div>
   </div>

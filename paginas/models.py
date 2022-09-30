@@ -69,7 +69,7 @@ class Ordenmesas(models.Model):
     mesa= models.ForeignKey(Mesas, on_delete=models.CASCADE)
     item= models.ForeignKey(Menu, on_delete=models.CASCADE)
     cantidad= models.IntegerField(default=1)
-    observacion= models.TextField(max_length=255, blank=True, null=True)
+    observacion= models.CharField(max_length=255, blank=True, null=True)
     def __str__(self):
         return f'Plato: {self.item}, cantidad: {self.cantidad} para la {self.mesa}.'
 
