@@ -2,8 +2,8 @@ from multiprocessing import context
 from django.shortcuts import render,redirect
 from .forms import CustomUserCreationForm, Usuario
 from django.contrib.auth import login, logout, authenticate
-from .forms import Menuform, Mesaform , Ordenmesaform, Ordenplatoform
-from .models import Menu, Usuario, Mesas , Ordenplato, Ordenmesa
+from .forms import Menuform, Mesaform , Ordenmesaform, Ordenplatoform, Ordenmesasform
+from .models import Menu, Usuario, Mesas , Ordenplato, Ordenmesa, Ordenmesas
 from django.contrib.auth.models import User
 from django.views.generic import ListView
 
@@ -79,36 +79,35 @@ class listUsuario(ListView):
     template_name = 'usuarios.html'
 
 def mesero_orden(request):
-    platos = Menu.objects.all()
-    
-    entradas= Menu.objects.filter(tipo_plato='Entrada')
-    plato_principal= Menu.objects.filter(tipo_plato='Plato Principal')
-    postres= Menu.objects.filter(tipo_plato='Postre')
-    bebidas= Menu.objects.filter(tipo_plato='Bebida') 
-    otros= Menu.objects.filter(tipo_plato='Otro') 
-    context = {'platos': platos,
-    'entradas': entradas,
-    'plato_principal': plato_principal,
-    'postres': postres,
-    'bebidas': bebidas,
-    'otros': otros,
+    if request.method == 'GET':
+        formulariom = Ordenmesasform()
+    else:
+         formulariom = Ordenmesasform(request.POST)
+         if formulariom.is_valid():
+             formulariom.save()
+             return redirect('mesero_orden')    
    
+    context = {
+        'formulariom': formulariom
 
     }
     return render(request, 'mesero-orden.html',context)
 
 def mesero_mesas(request):
-    orden= Ordenmesa.objects.all()
-    ordenplato= Ordenplato.objects.all()
-    menu=Menu.objects.all()
+    orden= Ordenmesas.objects.all()
+    ordenmesa= Ordenmesa.objects.all()
+   
+    mesas=Mesas.objects.all()
+   
     
-    mesa_1= Ordenplato.objects.filter(mesa=1)
     context= {
         'orden': orden ,
-        'ordenplato': ordenplato,
-        'menu': menu,
-        'mesa_1': mesa_1,
+        'ordenmesa': ordenmesa,
+        'mesas': mesas,
         
+        
+       
+                
     }
     return render(request, 'mesero-mesas.html', context)
 
@@ -116,19 +115,39 @@ def cocinero_list(request):
     return render(request, 'cocinero-comandas-list.html')
 
 def cocinero_todas(request):
-    orden= Ordenmesa.objects.all()
-    ordenplato= Ordenplato.objects.all()
-    menu=Menu.objects.all()
+    orden= Ordenmesas.objects.all()
+    ordenmesa= Ordenmesa.objects.all()
     
-    mesa_1= Ordenplato.objects.filter(mesa=1)
+    
+   
     context= {
         'orden': orden ,
-        'ordenplato': ordenplato,
-        'menu': menu,
-        'mesa_1': mesa_1,
+        'ordenmesa': ordenmesa,
+        
         
     }
     return render(request, 'cocinero-comandas-todas.html', context)
+
+def editar_orden(request,id):
+    plato= Menu.objects.get(id=id)
+    if request.method == 'GET':
+        formulariom = Menuform(instance=plato)
+        contexto={
+            'formulariom': formulariom
+        }
+    else:
+        formulariom = Menuform(request.POST,instance=plato)
+        contexto={
+            'formulariom': formulariom
+        }
+        if formulariom.is_valid():
+            formulariom.save()
+            return redirect('menu')
+    return render(request,'editar-plato.html',contexto) 
+
+
+
+
 
 def cocinero_mesa(request):
     return render(request, 'cocinero-comandas-mesa.html')

@@ -14,32 +14,33 @@
     <a href="/../mesero-orden.html"><button type="button" class="btn botonfijo expandir btn-primary"> <strong>+</strong> Orden</button></a>  
   </div>   
   <div class="container2 mt-5">
+   
     
     <div class="row row-cols-1 mt-3 row-cols-md-3 g-3">
-      {% for order in orden %}
+      {% for m in ordenmesa %}
         <!-- Inicio tarjeta orden-->
         <div class="col">       
           <div class="card border-none mb-3" style="max-width: 20rem; min-width: 15rem;"> 
             <div class="card-header" id="{{order.mesa}}">
-              {{order.mesa}} <br>
-              {{order.date}}
+              Mesa {{m.id}} <br>
+             
             </div>
             
-            {% for item in ordenplato %}
-            {%if order.mesa == item.mesa %} 
+            {% for x in orden %}
+            {% if x.mesa == m.mesa %} 
               <div class="card_content">
                 <div class="renglon row">              
                   <ul class="list-unstyled">
               
                     <li> 
                       <div class="row renglon2"> 
-                        <div class="col">{{item.plato}}</div>
-                        <div class="col-auto">{{item.cantidad}}</div>
+                        <div class="col">{{x.item}}</div>
+                        <div class="col-auto">{{x.cantidad}}</div>
                       </div>
                       <ul>
-                        {%if item.observacion%}
+                        {%if x.observacion%}
                         <li class="obsorden renglon2">
-                          {{item.observacion}}
+                          {{x.observacion}}
                         </li> 
                         {%endif%}               
                       </ul>
@@ -52,7 +53,11 @@
             
             <div class="card-footer border-white">            
               <div class="iconfooter2">
-                <a href=""><button type="button" class="btn expandir btn-primary">Editar Orden</button></a>
+                <form action="">
+                  {% csrf_token%}
+                  <input type="text" value="{{formulariom.mesa}}" hidden>
+                <a href="mesero-orden.html"><button type="button" class="btn expandir btn-primary">Editar Orden</button></a>
+                </form>
               </div>
             </div>               
           </div>
