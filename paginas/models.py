@@ -62,7 +62,7 @@ class Ordenplato(models.Model):
     def __str__(self):
         return f'Plato: {self.plato}, cantidad: {self.cantidad} para la {self.mesa}.'
 
-#-------------------------------------#mesa ordenes---------------------------------------------------------------
+#-------------------------------------mesa ordenes---------------------------------------------------------------
 class Ordenmesas(models.Model):
     id = models.AutoField(primary_key=True)
     

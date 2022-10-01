@@ -2,22 +2,21 @@ from multiprocessing import context
 from django.shortcuts import render,redirect
 from .forms import CustomUserCreationForm, Usuario
 from django.contrib.auth import login, logout, authenticate
-from .forms import Menuform, Mesaform , Ordenmesaform, Ordenplatoform, Ordenmesasform
-from .models import Menu, Usuario, Mesas , Ordenplato, Ordenmesa, Ordenmesas
+from .forms import Menuform,  Ordenmesasform
+from .models import Menu, Usuario, Mesas , Ordenmesa, Ordenmesas
 from django.contrib.auth.models import User
-from django.views.generic import ListView
+
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-def usuarios(request):
-    usuarios = User.objects.all()
-    context = {'usuarios': usuarios}
-    return render(request, 'usuarios.html', context)
 
+#-------------------------------------pagina principal---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def ppal(request):
     return render(request, 'ppal.html')
 @login_required(login_url='/accounts/login/')
+
+#-------------------------------------registro de usuarios---------------------------------------------------------------
 def registro(request):
    
     if request.method == 'POST':
@@ -41,12 +40,14 @@ def registro(request):
     context = {'formuse' : formuser, 'usuario_form': usuario_form}    
     return render(request, 'registration/registro.html', context)
 
+#-------------------------------------pagina menu---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def menu(request):
     platos = Menu.objects.all()
     context = {'platos': platos}
     return render(request,'menu.html', context)
 
+#-------------------------------------pagina crear plato---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def crear_plato(request):
     if request.method == 'GET':
@@ -58,6 +59,7 @@ def crear_plato(request):
              return redirect('menu')    
     return render(request, 'crear-plato.html',{'formulariom': formulariom})
 
+#-------------------------------------pagina editar plato---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def editar_plato(request,id):
     plato= Menu.objects.get(id=id)
@@ -76,17 +78,14 @@ def editar_plato(request,id):
             return redirect('menu')
     return render(request,'editar-plato.html',contexto) 
 
+#-------------------------------------eliminar plato---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def eliminar_plato(request,id):
     plato = Menu.objects.get(id=id)
     plato.delete()
     return redirect('menu')
 
-class listUsuario(ListView):
-    model = User
-    template_name = 'usuarios.html'
-    
-    
+#-------------------------------------editar orden de plato---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def mesero_orden(request, id):
     orden= Ordenmesas.objects.all()
@@ -113,6 +112,7 @@ def mesero_orden(request, id):
     }
     return render(request, 'mesero-orden.html',context)
 
+#-------------------------------------mesa ordenes---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def mesero_mesas(request):
     orden= Ordenmesas.objects.all()
@@ -131,38 +131,23 @@ def mesero_mesas(request):
     'orden': orden ,
     'ordenmesa': ordenmesa,
     'mesas': mesas,
-    'formulariom': formulariom,
-        
-        
-       
-                
+    'formulariom': formulariom,           
     }
     return render(request, 'mesero-mesas.html', context)
 
-@login_required(login_url='/accounts/login/')
-def cocinero_list(request):
-    return render(request, 'cocinero-comandas-list.html')
-
+#-------------------------------------cocina ordenes---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def cocinero_todas(request):
     orden= Ordenmesas.objects.all()
     ordenmesa= Ordenmesa.objects.all()
     
-    
-   
     context= {
         'orden': orden ,
-        'ordenmesa': ordenmesa,
-        
-        
+        'ordenmesa': ordenmesa,    
     }
     return render(request, 'cocinero-comandas-todas.html', context)
 
-
-@login_required(login_url='/accounts/login/')
-def cocinero_mesa(request):
-    return render(request, 'cocinero-comandas-mesa.html')
-
+#-------------------------------------vaciar orden de una mesa---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def vaciar_orden(request,id):
     plato = Ordenmesas.objects.filter(mesa=id)

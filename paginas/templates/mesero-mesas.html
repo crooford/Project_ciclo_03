@@ -20,7 +20,7 @@
         <div class="ventana-mesa3  border-none" style="max-width: 20rem; min-width: 20rem;">
           <h3>Agregar plato</h3>
           <hr>
-            <form action="mesero-mesas.html" id="blocdepedidos" method="POST">
+            <form id="blocdepedidos" method="POST">
               {% csrf_token%}
               {{formulariom.as_p}}
               
