@@ -14,8 +14,9 @@ urlpatterns = [
    path('eliminar-plato/<int:id>/', views.eliminar_plato, name='eliminar'),
    path('usuarios.html', listUsuario.as_view(), name='usuarios'),
    path('mesero-mesas.html', views.mesero_mesas, name='mesero_mesas'),
-   path('mesero-orden.html', views.mesero_orden, name='mesero_orden'),
+   path('mesero-orden/<int:id>/', views.mesero_orden, name='editar-plato'),
    path('cocinero-comandas-list.html', views.cocinero_list, name='cocinero_list'),
    path('cocinero-comandas-mesa.html', views.cocinero_mesa, name='cocinero_mesa'),
    path('cocinero-comandas-todas.html', views.cocinero_todas, name='cocinero_todas'),
+   path('vaciar/<int:id>/', views.vaciar_orden, name='vaciar'),
 ]

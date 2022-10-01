@@ -51,6 +51,7 @@
                           <div class="row renglon2"> 
                             <div class="col">{{x.item}}</div>
                             <div class="col-auto">{{x.cantidad}}</div>
+                            <div class="col-auto"> <a href="{% url 'editar-plato' x.id %}"> <img src={% static 'img/icono_lapiz.png' %} width="15" height="15" ></a></div>
                           </div>
                           <ul>
                             {%if x.observacion%}
@@ -65,16 +66,8 @@
                   </div>
                 {%endif%} 
                 {%endfor%}
-                
-                <div class="card-footer border-white">            
-                  <div class="iconfooter2">
-
-                      
-           
-                    <a href="mesero-mesas.html"><button type="button" class="btn expandir btn-primary">Editar Orden</button></a>
-
-                  </div>
-                </div>               
+                <div class="card-footer border-white" style="min-height: 2rem;"></div>
+                           
               </div>
             </div>
           {% endfor %}  

@@ -17,6 +17,7 @@ def usuarios(request):
 @login_required(login_url='/accounts/login/')
 def ppal(request):
     return render(request, 'ppal.html')
+@login_required(login_url='/accounts/login/')
 def registro(request):
    
     if request.method == 'POST':
@@ -87,17 +88,27 @@ class listUsuario(ListView):
     
     
 @login_required(login_url='/accounts/login/')
-def mesero_orden(request):
+def mesero_orden(request, id):
+    orden= Ordenmesas.objects.all()
+    ordenmesa= Ordenmesa.objects.all()
+    plato= Ordenmesas.objects.get(id=id)
     if request.method == 'GET':
-        formulariom = Ordenmesasform()
+        formulariom = Ordenmesasform(instance=plato)
+        context={
+            'formulariom': formulariom
+        }
     else:
-         formulariom = Ordenmesasform(request.POST)
-         if formulariom.is_valid():
-             formulariom.save()
-             return redirect('mesero_orden')    
-   
+        formulariom =Ordenmesasform(request.POST,instance=plato)
+        context={
+            'formulariom': formulariom
+        }
+        if formulariom.is_valid():
+            formulariom.save()
+            return redirect('mesero_mesas')  
     context = {
-        'formulariom': formulariom
+        'formulariom': formulariom,
+        'orden': orden ,
+        'ordenmesa': ordenmesa,
 
     }
     return render(request, 'mesero-orden.html',context)
@@ -147,28 +158,13 @@ def cocinero_todas(request):
     }
     return render(request, 'cocinero-comandas-todas.html', context)
 
-@login_required(login_url='/accounts/login/')
-def editar_orden(request,id):
-    plato= Menu.objects.get(id=id)
-    if request.method == 'GET':
-        formulariom = Menuform(instance=plato)
-        contexto={
-            'formulariom': formulariom
-        }
-    else:
-        formulariom = Menuform(request.POST,instance=plato)
-        contexto={
-            'formulariom': formulariom
-        }
-        if formulariom.is_valid():
-            formulariom.save()
-            return redirect('menu')
-    return render(request,'editar-plato.html',contexto) 
-
-
-
 
 @login_required(login_url='/accounts/login/')
 def cocinero_mesa(request):
     return render(request, 'cocinero-comandas-mesa.html')
 
+@login_required(login_url='/accounts/login/')
+def vaciar_orden(request,id):
+    plato = Ordenmesas.objects.filter(mesa=id)
+    plato.delete()
+    return redirect('cocinero_todas')
