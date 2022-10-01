@@ -187,15 +187,18 @@ input[name="precio"] {
 }
 
 .ventana-mesa3 {
-  position: relative;
+  padding-top: 70px;
+  padding-left: 10px;
+  font-weight: 700;
+  margin-left: 10px;
   min-height: 510px;
   min-width: 200px;
   max-height: 510px;
   max-width: 200px; 
-  background-image: url(/static/img/fondo1.jpg);
+  background-image: url(/static/img/blocpedidos.png);
     background-repeat: no-repeat;
-    background-size: cover;
-  border: 3px solid silver;
+    background-size: contain;
+  filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.5));
   border-radius: 20px;
-  box-shadow: 5px 5px 5px 5px rgba(84, 146, 175, 0.5), -5px -5px 5px 5px rgba(84, 146, 175, 0.5), -5px 5px 5px 5px rgba(84, 146, 175, 0.5), 5px -5px 5px 5px rgba(84, 146, 175, 0.5);
+ /* box-shadow: 5px 5px 5px 5px rgba(84, 146, 175, 0.5), -5px -5px 5px 5px rgba(84, 146, 175, 0.5), -5px 5px 5px 5px rgba(84, 146, 175, 0.5), 5px -5px 5px 5px rgba(84, 146, 175, 0.5); */
 }
