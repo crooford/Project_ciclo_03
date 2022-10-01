@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from .forms import CustomUserCreationForm, Usuario
 from django.contrib.auth import login, logout, authenticate
 from .forms import Menuform, Ordenmesasform
-from .models import Menu, Usuario, Mesas , IdOrden , Ordenmesas
+from .models import Menu, Usuario, IdOrden , Ordenmesas
 from django.contrib.auth.models import User
 
 from django.contrib.auth.decorators import login_required
@@ -13,10 +13,11 @@ from django.contrib.auth.decorators import login_required
 #-------------------------------------pagina principal---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def ppal(request):
+
     return render(request, 'ppal.html')
-@login_required(login_url='/accounts/login/')
 
 #-------------------------------------registro de usuarios---------------------------------------------------------------
+@login_required(login_url='/accounts/login/')
 def registro(request):
    
     if request.method == 'POST':
@@ -36,8 +37,10 @@ def registro(request):
             return render(request, 'ppal.html')
     else:
         formuser = CustomUserCreationForm()
-        usuario_form = Usuario()     
-    context = {'formuse' : formuser, 'usuario_form': usuario_form}    
+        usuario_form = Usuario()    
+
+    context = {'formuse' : formuser, 'usuario_form': usuario_form}  
+
     return render(request, 'registration/registro.html', context)
 
 #-------------------------------------pagina menu---------------------------------------------------------------
@@ -45,24 +48,28 @@ def registro(request):
 def menu(request):
     platos = Menu.objects.all()
     context = {'platos': platos}
+
     return render(request,'menu.html', context)
 
 #-------------------------------------pagina crear plato---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def crear_plato(request):
+
     if request.method == 'GET':
         formulariom = Menuform()
     else:
          formulariom = Menuform(request.POST)
          if formulariom.is_valid():
-             formulariom.save()
-             return redirect('menu')    
+            formulariom.save()
+            return redirect('menu') 
+
     return render(request, 'crear-plato.html',{'formulariom': formulariom})
 
 #-------------------------------------pagina editar plato---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def editar_plato(request,id):
     plato= Menu.objects.get(id=id)
+
     if request.method == 'GET':
         formulariom = Menuform(instance=plato)
         contexto={
@@ -73,9 +80,12 @@ def editar_plato(request,id):
         contexto={
             'formulariom': formulariom
         }
+
         if formulariom.is_valid():
             formulariom.save()
+
             return redirect('menu')
+
     return render(request,'editar-plato.html',contexto) 
 
 #-------------------------------------eliminar plato---------------------------------------------------------------
@@ -83,6 +93,7 @@ def editar_plato(request,id):
 def eliminar_plato(request,id):
     plato = Menu.objects.get(id=id)
     plato.delete()
+
     return redirect('menu')
 
 #-------------------------------------editar orden de plato---------------------------------------------------------------
@@ -101,15 +112,18 @@ def mesero_orden(request, id):
         context={
             'formulariom': formulariom
         }
+
         if formulariom.is_valid():
             formulariom.save()
-            return redirect('mesero_mesas')  
+
+            return redirect('mesero_mesas') 
+
     context = {
         'formulariom': formulariom,
         'ordenmesa': ordenmesa ,
         'idorden': idorden,
-
     }
+
     return render(request, 'mesero-orden.html',context)
 
 #-------------------------------------mesa ordenes---------------------------------------------------------------
@@ -117,21 +131,22 @@ def mesero_orden(request, id):
 def mesero_mesas(request):
     ordenmesa= Ordenmesas.objects.all()
     idorden= IdOrden.objects.all()
-    mesas=Mesas.objects.all()
+    
     if request.method == 'GET':
-            formulariom = Ordenmesasform()
+        formulariom = Ordenmesasform()
     else:
-            formulariom = Ordenmesasform(request.POST)
-            if formulariom.is_valid():
-                formulariom.save()
-                return redirect('mesero_mesas')
+        formulariom = Ordenmesasform(request.POST)
+        if formulariom.is_valid():
+            formulariom.save()
+
+            return redirect('mesero_mesas')
         
     context= {
     'ordenmesa': ordenmesa ,
     'idorden': idorden,
-    'mesas': mesas,
     'formulariom': formulariom,           
     }
+
     return render(request, 'mesero-mesas.html', context)
 
 #-------------------------------------cocina ordenes---------------------------------------------------------------
@@ -144,6 +159,7 @@ def cocinero_todas(request):
         'ordenmesa': ordenmesa ,
         'idorden': idorden,    
     }
+
     return render(request, 'cocinero-comandas-todas.html', context)
 
 #-------------------------------------vaciar orden de una mesa---------------------------------------------------------------
@@ -151,4 +167,5 @@ def cocinero_todas(request):
 def vaciar_orden(request,id):
     plato = Ordenmesas.objects.filter(mesa=id)
     plato.delete()
+
     return redirect('cocinero_todas')
