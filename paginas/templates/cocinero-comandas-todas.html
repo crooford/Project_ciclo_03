@@ -12,17 +12,17 @@
   <div class="container2 mt-3">
     
     <div class="row row-cols-1 mt-3 row-cols-md-3 g-3">
-      {% for mesa in ordenmesa %}
+      {% for orden in idorden %}
         <!-- Inicio tarjeta orden-->
         <div class="col">       
           <div class="card border-none mb-3" style="max-width: 20rem; min-width: 15rem;"> 
-            <div class="card-header" id="{{order.mesa}}">
-              {{mesa.mesa}} <br>
+            <div class="card-header" id="">
+              {{orden.mesa}} <br>
              
             </div>
             
-            {% for plato in orden %}
-            {%if mesa.mesa == plato.mesa %} 
+            {% for plato in ordenmesa %}
+            {%if orden.mesa == plato.mesa %} 
               <div class="card_content">
                 <div class="renglon row">              
                   <ul class="list-unstyled">
@@ -48,7 +48,7 @@
             
             <div class="card-footer border-white">            
               <div class="iconfooter2">
-                <a href="{% url 'vaciar' mesa.id%}"><button type="button" class="btn expandir btn-primary">Orden Lista</button></a>
+                <a href="{% url 'vaciar' orden.id %}"><button type="button" class="btn expandir btn-primary">Orden Lista</button></a>
               </div>
             </div>               
           </div>

@@ -2,8 +2,8 @@ from multiprocessing import context
 from django.shortcuts import render,redirect
 from .forms import CustomUserCreationForm, Usuario
 from django.contrib.auth import login, logout, authenticate
-from .forms import Menuform,  Ordenmesasform
-from .models import Menu, Usuario, Mesas , Ordenmesa, Ordenmesas
+from .forms import Menuform, Ordenmesasform
+from .models import Menu, Usuario, Mesas , IdOrden , Ordenmesas
 from django.contrib.auth.models import User
 
 from django.contrib.auth.decorators import login_required
@@ -88,8 +88,8 @@ def eliminar_plato(request,id):
 #-------------------------------------editar orden de plato---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def mesero_orden(request, id):
-    orden= Ordenmesas.objects.all()
-    ordenmesa= Ordenmesa.objects.all()
+    ordenmesa= Ordenmesas.objects.all()
+    idorden= IdOrden.objects.all()
     plato= Ordenmesas.objects.get(id=id)
     if request.method == 'GET':
         formulariom = Ordenmesasform(instance=plato)
@@ -106,8 +106,8 @@ def mesero_orden(request, id):
             return redirect('mesero_mesas')  
     context = {
         'formulariom': formulariom,
-        'orden': orden ,
-        'ordenmesa': ordenmesa,
+        'ordenmesa': ordenmesa ,
+        'idorden': idorden,
 
     }
     return render(request, 'mesero-orden.html',context)
@@ -115,9 +115,8 @@ def mesero_orden(request, id):
 #-------------------------------------mesa ordenes---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def mesero_mesas(request):
-    orden= Ordenmesas.objects.all()
-    ordenmesa= Ordenmesa.objects.all()
-   
+    ordenmesa= Ordenmesas.objects.all()
+    idorden= IdOrden.objects.all()
     mesas=Mesas.objects.all()
     if request.method == 'GET':
             formulariom = Ordenmesasform()
@@ -128,8 +127,8 @@ def mesero_mesas(request):
                 return redirect('mesero_mesas')
         
     context= {
-    'orden': orden ,
-    'ordenmesa': ordenmesa,
+    'ordenmesa': ordenmesa ,
+    'idorden': idorden,
     'mesas': mesas,
     'formulariom': formulariom,           
     }
@@ -138,12 +137,12 @@ def mesero_mesas(request):
 #-------------------------------------cocina ordenes---------------------------------------------------------------
 @login_required(login_url='/accounts/login/')
 def cocinero_todas(request):
-    orden= Ordenmesas.objects.all()
-    ordenmesa= Ordenmesa.objects.all()
+    ordenmesa= Ordenmesas.objects.all()
+    idorden= IdOrden.objects.all()
     
     context= {
-        'orden': orden ,
-        'ordenmesa': ordenmesa,    
+        'ordenmesa': ordenmesa ,
+        'idorden': idorden,    
     }
     return render(request, 'cocinero-comandas-todas.html', context)
 

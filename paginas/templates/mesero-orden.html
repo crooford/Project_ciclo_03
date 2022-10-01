@@ -34,30 +34,30 @@
       </div>
       <div class="col derecha" style="width:auto"> 
         <div class="row row-cols-1 mt-3 row-cols-md-2 g-3">
-          {% for m in ordenmesa %}
+          {% for orden in idorden %}
             <!-- Inicio tarjeta orden-->
             <div class="col">       
               <div class="card border-none mb-3" style="max-width: 24rem; min-width: 24rem;"> 
-                <div class="card-header" id="{{order.mesa}}">
-                  Mesa {{m.id}} <br>
+                <div class="card-header" id="">
+                  Mesa {{orden.id}} <br>
                 
                 </div>
                 
-                {% for x in orden %}
-                {% if x.mesa == m.mesa %} 
+                {% for plato in ordenmesa %}
+                {% if plato.mesa == orden.mesa %} 
                   <div class="card_content">
                     <div class="renglon row">              
                       <ul class="list-unstyled">
                   
                         <li> 
                           <div class="row renglon2"> 
-                            <div class="col">{{x.item}}</div>
-                            <div class="col-auto">{{x.cantidad}}</div>
+                            <div class="col">{{plato.item}}</div>
+                            <div class="col-auto">{{plato.cantidad}}</div>
                           </div>
                           <ul>
-                            {%if x.observacion%}
+                            {%if plato.observacion%}
                             <li class="obsorden renglon2">
-                              {{x.observacion}}
+                              {{plato.observacion}}
                             </li> 
                             {%endif%}               
                           </ul>

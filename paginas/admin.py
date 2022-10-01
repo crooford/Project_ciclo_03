@@ -1,6 +1,6 @@
 from django.contrib import admin
 # Register your models here.
-from .models import Menu, Usuario , Mesas , Ordenplato, Ordenmesa , Ordenmesas
+from .models import IdOrden, Menu, Usuario , Mesas , Ordenmesas
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
 
@@ -16,6 +16,5 @@ class CustomizedUserAdmin (UserAdmin):
 admin.site.unregister(User)
 admin.site.register(User, CustomizedUserAdmin )
 admin.site.register(Mesas)
-admin.site.register(Ordenmesa)
-admin.site.register(Ordenplato)
+admin.site.register(IdOrden)
 admin.site.register(Ordenmesas)
