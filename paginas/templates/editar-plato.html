@@ -8,8 +8,7 @@
 {% block contenido %} {% load static %} 
 <br><br><br><br><br>
 {% load crispy_forms_tags %}
-<div class="tarjeta">
-  
+<div class="tarjeta" style="max-width: 35rem; margin: 0 auto">  
   <div class="titulo">Editar Plato</div>
   <div class="cuerpo">
     <div class="col-12.col-md-6.offset-md-3">
@@ -19,12 +18,10 @@
 
         {{ form | crispy }}
         <div class="submiter">
-        <input type="submit" value="Hecho">
+          <input type="submit" value="Hecho">
         </div>
-  
+    </div>  
   </div>
-  
-  </div>
-  </div>
+</div>
 
 {% endblock %}

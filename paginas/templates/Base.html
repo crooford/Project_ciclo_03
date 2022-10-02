@@ -35,19 +35,19 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               
               {% if request.user.usuario.Cargo == 'Mesero' or request.user.usuario.Cargo == 'Administrador' %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'mesero_mesas'%}">Mesero</a>
+              <li class="nav-item" >
+                <a class="nav-link botoninclinado" href="{% url 'mesero_mesas'%}">Mesero</a>
               </li>
               {% endif %}
               {% if request.user.usuario.Cargo == 'Cocinero' or request.user.usuario.Cargo == 'Administrador' %}
               <li class="nav-item">
-                  <a class="nav-link" href="{% url 'cocinero_todas' %}">Cocina</a>
+                  <a class="nav-link botoninclinado" href="{% url 'cocinero_todas' %}">Cocina</a>
                 </li>
                 {% endif %}
            
                 {% if request.user.usuario.Cargo == 'Administrador' %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'menu' %}">Menú</a>
+                    <a class="nav-link botoninclinado" href="{% url 'menu' %}">Menú</a>
                   </li>
                 {% endif %}               
             </ul>
@@ -56,11 +56,15 @@
               {% if user.is_authenticated %}
               
               
-              <a style="margin-right: 10px;"> {{user.username}}</a> 
-              
-              <a style="text-decoration: none;" href="{% url 'logout' %}"> Logout</a>             
+              <b class="nav-item" style="margin-right: 10px;"> {{user.username}}</b> 
+
+              <div class="botoninclinado" >
+                <a style="margin: 0 12px;  text-decoration: none;" href="{% url 'logout' %}">Logout</a>             
+              </div>
               {% else %}
-              <a href="{% url 'login' %}">iniciar sesión</a>
+              <div class="botoninclinado" >
+                <a href="{% url 'login' %}">iniciar sesión</a>
+              </div>
               {% endif %}
               
             </span>

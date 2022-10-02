@@ -92,7 +92,15 @@ z-index: 1;
 content: ""
 }
 
+.botoninclinado{
+    -ms-transform: skewX(-20deg);
+    -webkit-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+}
 
+.botoninclinado:hover {
+    background-color: white;
+}
 
 table {
     border: hidden;    

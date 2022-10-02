@@ -8,23 +8,22 @@
 {% block contenido %} {% load static %} 
 <br><br><br><br><br><br>
 {% load crispy_forms_tags %}
-<div class="tarjeta">
-  
-  <div class="titulo">Crear Nuevo Plato</div>
-  <div class="cuerpo">
-    <div class="col-12.col-md-6.offset-md-3">
-      <form action="" method="post">
-        {% csrf_token%}
-        {{formulariom.as_p}}
 
-        {{ form | crispy }}
-        <div class="submiter">
-        <input type="submit" value="Registar">
-        </div>
-  
-  </div>
-  
-  </div>
+
+  <div class="tarjeta" style="max-width: 35rem; margin: 0 auto">  
+    <div class="titulo">Crear Nuevo Plato</div>
+    <div class="cuerpo">
+      <div class="col-12.col-md-6.offset-md-3">
+        <form action="" method="post">
+          {% csrf_token%}
+          {{formulariom.as_p}}
+
+          {{ form | crispy }}
+          <div class="submiter">
+            <input type="submit" value="Registar">
+          </div>      
+      </div>    
+    </div>
   </div>
 
 {% endblock %}
