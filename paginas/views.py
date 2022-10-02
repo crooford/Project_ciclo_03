@@ -169,3 +169,11 @@ def vaciar_orden(request,id):
     plato.delete()
 
     return redirect('cocinero_todas')
+
+#-------------------------------------mesero elimiar item de orden de una mesa---------------------------------------------------------------
+@login_required(login_url='/accounts/login/')
+def eliminar_itemorden(request,id):
+    plato = Ordenmesas.objects.get(id=id)
+    plato.delete()
+
+    return redirect('mesero_mesas')
