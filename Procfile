@@ -1,1 +1,1 @@
-web: gunicorn tworden-app.wsgi --log-file -
+web: gunicorn Tworden.wsgi --log-file -
