@@ -1,1 +1,1 @@
-web: gunicorn project_ciclo_03_tworden.wsgi --log-file -
+web: gunicorn tworden-app.wsgi --log-file -
