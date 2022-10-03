@@ -1,0 +1,204 @@
+.ventana-mesa {
+  position: relative;
+
+  min-height: 510px;
+  min-width: 350px;
+  max-height: 510px;
+  max-width: 720px; 
+  background-image: url(/static/img/fondo1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  border: 3px solid silver;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 5px rgba(84, 146, 175, 0.5), -5px -5px 5px 5px rgba(84, 146, 175, 0.5), -5px 5px 5px 5px rgba(84, 146, 175, 0.5), 5px -5px 5px 5px rgba(84, 146, 175, 0.5);
+}
+
+.encabezado {
+  background-color: #4291c9;
+  border-radius: 16px 16px 0 0;
+  background-clip: padding-box;
+}
+
+h4 {
+  color: antiquewhite;
+  margin-left: 10px;
+}
+
+.notepad {
+  background-color: white;
+  overflow: scroll;
+  overflow-x: auto;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 0; 
+  min-height: 410px;
+  min-width: 260px;
+  max-height: 410px;
+  max-width: 680px; 
+  box-shadow: 1px 1px rgb(0, 0, 0), 2px 2px rgb(255, 255, 255),3px 3px rgb(0, 0, 0), 4px 4px rgb(255, 255, 255), 5px 5px rgb(0, 0, 0), 6px 6px rgb(255, 255, 255), 6px 6px 6px 6px rgba(8, 8, 8, 0.5);
+}
+
+.botones {
+  overflow: auto;
+  position: relative;
+  margin: auto;
+  padding: 0;
+  min-width: 110px;
+  max-height: 410px;
+  max-height: 410px;
+  max-width: 100px; 
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.listado {
+  padding: 10px;
+  background: rgb(71, 151, 141);
+  overflow: auto;
+  overflow-x: hidden;
+  position: relative;
+  margin: auto;
+  min-height: 410px;
+  min-width: 260px;
+  max-height: 410px;
+  max-width: 200px; 
+  box-shadow: 5px 5px  rgba(84, 146, 175, 0.5);
+  border-radius: 10px;
+}
+
+.table {
+  font-size: 0.8em;
+  border-color: darkgrey;
+}
+
+thead {
+  text-align: left; 
+}
+
+td input, 
+textarea {
+  border: none;
+}
+
+input[name="precio"] {
+  text-align: right; 
+}
+
+.categoria + .categoria { 
+  margin-top: 10px;
+}
+
+.categoria {
+  border-radius: 5px;
+  width: 96%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  background:  rgb(58, 121, 112);
+  box-shadow: 5px 5px  rgba(84, 146, 175, 0.5)
+}
+
+.principal, 
+.entrada,  
+.postre,
+.bebida,
+.otro 
+{
+  border-radius: 5px;
+  width: 95%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 10px;
+  border: 2px solid #fff;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 100ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px 30px;
+  padding: 0px;
+  background: whitesmoke;
+  border-radius: 18px;
+  width: 45%;  
+  min-height: 400px;
+  overflow: auto;
+  max-width: 530px;
+  position: absolute;
+  transition: all 0.1s ease-in-out;
+
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .contenido {
+  padding: 10px;
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .popup{
+    width: 70%;
+  }
+}
+
+.obs {
+  display: inline-block;
+}
+
+
+
+.btn-dark {
+  margin: 1px;
+  position: auto;
+  left: 80%;
+  vertical-align: text-top;
+  align-items: flex-end;
+  background:  red !important;
+  height: 25px;
+  
+}
+
+.ventana-mesa3 {
+  padding-top: 70px;
+  padding-left: 10px;
+  font-weight: 700;
+  margin-left: 10px;
+  min-height: 510px;
+  min-width: 200px;
+  max-height: 510px;
+  max-width: 200px; 
+  background-image: url(/static/img/blocpedidos.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.5));
+  border-radius: 20px;
+ /* box-shadow: 5px 5px 5px 5px rgba(84, 146, 175, 0.5), -5px -5px 5px 5px rgba(84, 146, 175, 0.5), -5px 5px 5px 5px rgba(84, 146, 175, 0.5), 5px -5px 5px 5px rgba(84, 146, 175, 0.5); */
+}

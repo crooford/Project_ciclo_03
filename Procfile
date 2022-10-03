@@ -1,0 +1,1 @@
+web: gunicorn project_ciclo_03_tworden.wsgi --log-file -

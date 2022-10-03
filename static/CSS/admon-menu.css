@@ -1,0 +1,210 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .body-admon{
+    background: url("../img/fondo1.jpg") no-repeat center top;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+    min-width: 950px;
+  }
+
+  .wrapper .sidebar {
+    background: rgba(58, 121, 112, 0.473);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100%;
+    padding: 20px 0;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+
+  .wrapper .sidebar.profile-admon {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .wrapper .sidebar .perfil-admon .avatar{
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-color: black;
+    position: absolute;
+    left: 150px;
+    margin: 0 auto;
+  }
+  .wrapper .sidebar .perfil-admon h3{
+    color: #ffffff;
+    margin: 60px;
+    padding: 120px 0 1px;
+    text-align: center;
+    font-size: 35px;
+}
+  
+  .wrapper .perfil-admon p {
+    color: #cef0fd;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .wrapper .sidebar ul li a {
+    display: block;
+    padding: 13px 15px 3px;
+    border-bottom: 1px solid #E2C275;
+    color: #f1eded;
+    font-size: 16px;
+    position: relative;
+  }
+  
+  .wrapper .sidebar ul li a .icon {
+    color: #dee4ec;
+    width: 30px;
+    display: inline-block;
+  }
+  
+  .wrapper .sidebar ul li a:hover,
+  .wrapper .sidebar ul li a.active {
+    color: #E2C275;
+    background: white;
+    border-right: 2px solid #E2C275;
+  }
+  
+  .wrapper .sidebar ul li a:hover .icon,
+  .wrapper .sidebar ul li a.active .icon {
+    color: #EADCA6;
+  }
+  
+  .wrapper .sidebar ul li a:hover:before,
+  .wrapper .sidebar ul li a.active:before {
+    display: block;
+  }
+
+  .form-register{
+    width: 500px;  
+    color: black;
+    padding: 30px;
+    padding-top: -70px;
+    margin-top: 0px;
+    border-radius: 25px;     
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.35); 
+    transform: translate(0, 25%);
+    position: relative;
+  	left: 200px;
+    top: 0px;
+    margin: auto;
+  }
+    
+  input[type="submit"]:hover,
+  button:hover {
+      color: #fff;
+      box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+      transform: translateY(-2px);  
+  }
+
+  .form-register h4{
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: black;
+    text-align: center;
+  }
+
+  .controls{
+    width: 100%;
+    background: #24303c5b;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;    
+  }
+  
+  .controls .textogris {
+    color: grey;
+  }
+
+  .form-register .botons {
+    font-family: sans-serif;
+    transition:  0.5s ease-in-out; 
+    border: none;
+    outline: none;
+    height: 23px;
+    width: 80%;
+    background: rgba(58, 121, 112, 0.473);
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.35);
+    margin: 0;
+  }
+
+.lado {
+  display: inline-block;
+  width: 48%;
+} 
+
+.etiqu {
+  font-size: 15px;
+  margin-bottom: -100px;
+
+}
+.submiter {    
+  width: 20ch;
+  text-align: center;
+  margin: 10px auto;
+}
+
+button {
+  position: absolute;
+  left: 420px;
+  top: 30px;
+  display: flex;
+  height: 3em;
+  width: 120px;
+  font-size: 20px;
+  height: 25px;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.35);
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee4b;
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  border: none;
+  background: rgba(58, 121, 112, 0.473);
+ }
+ 
+ button > svg {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  transition: all 0.2s ease-in;
+ }
+ 
+ button:hover > svg {
+  font-size: 1.2em;
+  transform: translateX(-5px);
+  fill: white;
+ }
+ 
+ button:hover {
+  box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+  transform: translateY(-2px);
+ }
+
+ textarea {
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 100px;
+ }

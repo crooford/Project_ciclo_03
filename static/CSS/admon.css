@@ -1,0 +1,98 @@
+* 
+{
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    
+  }
+
+  .body-admon{
+    background: url("../img/fondo1.jpg") no-repeat center top;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    min-width: 850px;
+    
+  }
+
+  body{
+    min-width: 850px;
+  }
+
+  .wrapper .sidebar {
+    background: rgba(58, 121, 112, 0.473);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100%;
+    padding: 20px 0;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  .wrapper .sidebar.profile-admon {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .wrapper .sidebar .perfil-admon h3{
+    color: #ffffff;
+    margin: 60px;
+    padding: 120px 0 1px;
+    text-align: center;
+    font-size: 35px;
+}
+  
+  .wrapper .perfil-admon p {
+    color: #cef0fd;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .wrapper .sidebar ul li a {
+    display: block;
+    padding: 13px 15px 3px;
+    border-bottom: 1px solid #E2C275;
+    color: #f1eded;
+    font-size: 16px;
+    position: relative;
+  }
+  
+  .wrapper .sidebar ul li a .icon {
+    color: #dee4ec;
+    width: 30px;
+    display: inline-block;
+  }
+  
+  .wrapper .sidebar ul li a:hover,
+  .wrapper .sidebar ul li a.active {
+    color: #E2C275;
+    background: white;
+    border-right: 2px solid #E2C275;
+  }
+  
+  .wrapper .sidebar ul li a:hover .icon,
+  .wrapper .sidebar ul li a.active .icon {
+    color: #EADCA6;
+  }
+  
+  .wrapper .sidebar ul li a:hover:before,
+  .wrapper .sidebar ul li a.active:before {
+    display: block;
+  }
+
+  .avatar{
+    display: flex;
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    border-color: black;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(5%, -50%)
+  }
