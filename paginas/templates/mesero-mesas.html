@@ -52,8 +52,8 @@
                           <div class="row renglon2"> 
                             <div class="col">{{plato.item}}</div>
                             <div class="col-auto">{{plato.cantidad}}</div>
-                            <div class="col-auto"> <a href="{% url 'editar-plato' plato.id %}"> <img src={% static './static/img/icono_lapiz.png' %} width="17" height="17" ></a></div>
-                            <div class="col-auto"> <a href="{% url 'eliminar-itemorden' plato.id %}"> <img src={% static './static/img/icono_borrar.png' %} width="17" height="17" ></a></div>
+                            <div class="col-auto"> <a href="{% url 'editar-plato' plato.id %}"> <img src={% static 'img/icono_lapiz.png' %} width="17" height="17" ></a></div>
+                            <div class="col-auto"> <a href="{% url 'eliminar-itemorden' plato.id %}"> <img src={% static 'img/icono_borrar.png' %} width="17" height="17" ></a></div>
                           </div>
                           <ul>
                             {%if plato.observacion%}
