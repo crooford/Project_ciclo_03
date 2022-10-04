@@ -6,6 +6,15 @@
 
 
 {% block contenido %} {% load static %} 
+@login_required(login_url='/accounts/login/')
+
+{% if request.user.usuario.Cargo == 'Mesero' %}
+    <meta http-equiv="REFRESH" content="0;href=/../mesas">
+    {% elif request.user.usuario.Cargo == 'Cocinero' %}
+        <meta http-equiv="REFRESH" content="0;href=/../cocina">
+    {% endelif}
+{% endif %}
+
 <br><br><br><br><br><br>
 {% load crispy_forms_tags %}
 

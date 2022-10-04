@@ -5,8 +5,14 @@
 
 
 {% block contenido %} 
-{% load static %} 
 
+{% load static %} 
+@login_required(login_url='/accounts/login/')
+
+{% if request.user.usuario.Cargo == 'Cocinero' %}
+<meta http-equiv="REFRESH" content="0;href=/../cocina">
+   
+{% endif %}
 
 <div id="todo"> 
 
