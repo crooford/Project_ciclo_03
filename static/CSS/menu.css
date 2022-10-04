@@ -1,6 +1,6 @@
 .tarjeta1 {
     margin: auto;
-    margin-top: -50px;    
+    margin-top: -60px;    
     display:flex;
     flex-direction:column;
     justify-content:space-between;
@@ -43,7 +43,7 @@
 }
 
 .tbody1 {
-    height: 500px;    
+    height: 55vh;    
     overflow-y: auto;
     margin-bottom: 10px;
     margin-right: 5px;
